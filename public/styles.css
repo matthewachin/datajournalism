@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding: 0;
+  color: white;
 }
 #menu-button-div{
   display: flex;
@@ -10,14 +11,12 @@
 }
 #open-menu{
   background-color: black;
-  color: white;
-  width: 4rem;
-  height: 2rem;
+  color: rgba(0,0,0,0);
+  width: 2.5rem;
+  height: 2.5rem;
   position: absolute;
-  border: solid 2px lightblue
-}
-#open-menu:hover{
-  background-color: rgb(35, 38, 39);
+  border: none;
+  background-color: rgba(0,0,0,0);
 }
 .hidden{
   visibility: hidden;
@@ -63,4 +62,14 @@
 .diagram-header{
   font-size: 2rem;
   color: white;
+}
+h1,h2,h3,h4,h5,h6{
+  color: white;
+}
+.underline{
+  text-decoration: underline;
+}
+.diagram-container{
+  display: flex;
+  flex-direction: row;
 }
