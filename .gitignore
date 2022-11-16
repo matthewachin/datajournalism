@@ -2,6 +2,6 @@
 node_modules/
 build/
 
-# specific files
+# Specific files
 .DS_Store
 package-lock.JSON
