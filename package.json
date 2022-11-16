@@ -10,6 +10,9 @@
     "fs": "^0.0.1-security"
   },
   "scripts": {
+    "prebuild" : "echo \"prebuild"\",
+    "build": "cd data && node generateJSON.js",
+    "postbuild": "",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "open http://localhost:3000 && node server.js"
   },
