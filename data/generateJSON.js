@@ -30,6 +30,7 @@ deathData.forEach(function(death){
     final_data[year][state_name] = {}
     final_data[year][state_name]['population'] = state_info[8]
     final_data[year][state_name][cause_name] = cause
+
   }
 })
 
