@@ -5,3 +5,4 @@ public/
 # Specific files
 .DS_Store
 package-lock.JSON
+.DS_Store
