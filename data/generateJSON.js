@@ -17,19 +17,19 @@ deathData.forEach(function(death){
     'deaths' : state_info[7],
     'crude-rate' : state_info[9],
   }
-  if(year in final_data){
-    if(state_name in final_data[year]){
-      final_data[year][state_name][cause_name] = cause
+  if(state_name in final_data){
+    if(year in final_data[state_name]){
+      final_data[state_name][year][cause_name] = cause
     }else{
-      final_data[year][state_name] = {}
-      final_data[year][state_name]['population'] = state_info[8]
-      final_data[year][state_name][cause_name] = cause
+      final_data[state_name][year] = {}
+      final_data[state_name][year]['population'] = state_info[8]
+      final_data[state_name][year][cause_name] = cause
     }
   }else{
-    final_data[year] = {}
-    final_data[year][state_name] = {}
-    final_data[year][state_name]['population'] = state_info[8]
-    final_data[year][state_name][cause_name] = cause
+    final_data[state_name] = {}
+    final_data[state_name][year] = {}
+    final_data[state_name][year]['population'] = state_info[8]
+    final_data[state_name][year][cause_name] = cause
 
   }
 })
