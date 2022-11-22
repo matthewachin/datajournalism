@@ -5,7 +5,7 @@
   text-align: right;
 }
 #open-menu{
-  background-color: black;
+  background-color: white;
   color: rgba(0,0,0,0);
   width: 2.5rem;
   height: 2.5rem;
@@ -20,8 +20,8 @@
 #menu{
   height: 100vh;
   width: 100vw;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -48,4 +48,21 @@
 #highlight-menu-icon{
   position:absolute;
   width: 2.5rem;
+}
+.diagram-header{
+  font-size: 2rem;
+  color: black;
+}
+h1,h2,h3,h4,h5,h6{
+  color: black;
+}
+.underline{
+  text-decoration: underline;
+}
+.diagram-container{
+  display: flex;
+  flex-direction: row;
+}
+.diagram{
+  width: 25%;
 }
