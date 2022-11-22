@@ -66,3 +66,25 @@ h1,h2,h3,h4,h5,h6{
 .diagram{
   width: 25%;
 }
+.nav-button{
+  
+  background-color: gray;
+  padding: 1rem 3rem;
+  margin: 0;
+  text-decoration: none;
+  color: black;
+}
+.nav-button:hover{
+  background-color: darkgray;
+}
+#nav-bar-container{
+  display: flex;
+  background-color: gray;
+}
+#nav-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:0;
+  padding: 0 2rem;
+}
