@@ -15,13 +15,18 @@
   <img src="placeholder.png" class="diagram">
   <table>
     <tr>
-      <th>Year</th>
-      <th>Population</th>
+      <%for(cause in data[2001]){ %>
+        <th>
+          <%=cause%>
+        </th>
+        <% }%>
+
     </tr>
       <% for(year in data){ %>
         <tr>
-          <td><%= year %></td>
-          <td><%= data[year].population %></td>
+          <% for(cause in data[year]){ %>
+          <td><%= data[year][cause] %></td>
+          <% } %>
         </tr>
       <% } %>
 
