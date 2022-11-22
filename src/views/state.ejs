@@ -17,13 +17,14 @@
     <tr>
       <th>Year</th>
       <th>Population</th>
+    </tr>
       <% for(year in data){ %>
         <tr>
           <td><%= year %></td>
           <td><%= data[year].population %></td>
         </tr>
       <% } %>
-    </tr>
+
   </table>
 
   <h2>Leading Causes of Death 1999-2020</h2>
