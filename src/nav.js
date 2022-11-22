@@ -14,3 +14,11 @@ document.getElementById('close-menu').addEventListener('click',function(event){
   menu.classList.toggle('hidden', true)
   close_button.classList.toggle('hidden', true)
 })
+document.getElementById('close-option').addEventListener('click',function(event){
+  let open_button = document.getElementById('open-menu')
+  let menu = document.getElementById('menu')
+  let close_button = document.getElementById('close-menu')
+  open_button.classList.toggle('hidden', false)
+  menu.classList.toggle('hidden', true)
+  close_button.classList.toggle('hidden', true)
+})

@@ -1,8 +1,3 @@
-*{
-  margin: 0;
-  padding: 0;
-  color: white;
-}
 #menu-button-div{
   display: flex;
   justify-content: right;
@@ -53,26 +48,4 @@
 #highlight-menu-icon{
   position:absolute;
   width: 2.5rem;
-}
-#header{
-  font-size: 3rem;
-  color: white;
-  
-}
-.diagram-header{
-  font-size: 2rem;
-  color: white;
-}
-h1,h2,h3,h4,h5,h6{
-  color: white;
-}
-.underline{
-  text-decoration: underline;
-}
-.diagram-container{
-  display: flex;
-  flex-direction: row;
-}
-.diagram{
-  width: 25%;
 }

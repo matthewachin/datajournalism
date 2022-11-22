@@ -22,6 +22,7 @@ for (state in state_info){
 /*
   1) Generate an index page of all states
 */
+
 let index_html = ejs.render(index_template, {
   filename: __dirname + '/views/index.ejs',
   data: state_info

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+
+<%- include ('global/header.ejs'); %>
+
+<body>
+  <%- include ('global/navbar.ejs'); %>
+  <h1>Causes of Death in the United States</h1>
+  <h4>Population of US: 331.9 Million</h3>
+  <h2>Map of the US (links to micropages by clicking on state)</h2>
+  <% for(state in data){ %>
+    <a href="<%= data[state].link %>.html"><%= state %></a>
+    <br>
+  <% } %>
+
+  <h2>Causes of Death in the United States 1999-2020</h2>
+  <h5>Insert more here graphs</h5>
+
+  <%- include ('global/footer');  %>
+  <%- include ('global/scripts.ejs'); %>
+</body>
+
+</html>

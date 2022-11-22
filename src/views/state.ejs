@@ -6,12 +6,28 @@
 <body>
   <%- include ('global/navbar.ejs'); %>
   <header>
-    <h1><%=name%></h1>
+    <h1>Deaths in <%=name%></h1>
   </header>
 
   <section id="state-stats">
+  <h2>Insert <%= name %>'s image</h2>
   <h2>Stats</h2>
-  <h5>Total Population: <%= data['population'] %></h5>
+  <h5>insert population graph here</h5>
+  <table>
+    <tr>
+      <th>Year</th>
+      <th>Population</th>
+      <% for(year in data){ %>
+        <tr>
+          <td><%= year %></td>
+          <td><%= data[year].population %></td>
+        </tr>
+      <% } %>
+    </tr>
+  </table>
+
+  <h2>Insert leading causes of death graph here</h2>
+  <h2>Insert graph showing deaths/yr</h2>
   </section>
 
   <%- include ('global/footer');  %>
