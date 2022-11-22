@@ -1,0 +1,51 @@
+#menu-button-div{
+  display: flex;
+  justify-content: right;
+  align-items:right;
+  text-align: right;
+}
+#open-menu{
+  background-color: black;
+  color: rgba(0,0,0,0);
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  border: none;
+  background-color: rgba(0,0,0,0);
+}
+.hidden{
+  visibility: hidden;
+  position: absolute;
+}
+#menu{
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+#menu a{
+  margin: 5px;
+  color: white;
+  font-size: 3rem;
+}
+#menu a:hover{
+  color: lightblue;
+}
+#close-menu{
+  position: absolute
+}
+#main-content{
+  background-color: black;
+}
+#menu-icon{
+  position:absolute;
+  width: 2.5rem;
+}
+#highlight-menu-icon{
+  position:absolute;
+  width: 2.5rem;
+}

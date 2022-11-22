@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Causes of Death in US</title>
+  <meta name="author" content="Matthew Chin & Ben Levy">
+  <meta name="description" content="About page for Matthew Chin and Ben Levy's Data Journalism Project">
+  <meta content="text/html" http-equiv="Content-type" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link rel="stylesheet" href="about_styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+  <header>
+    <div id='menu-button-div'>
+<!-- <img src='images/highlight-menu-icon.png' class="menu-icon hidden" id='highlight-menu-icon'> -->
+      <img src="images/menu-icon.png" class='menu-icon' id='menu-icon'>
+      <button type="button" id='open-menu'>---</button>
+      <button type="button" class="btn-close btn-close-white hidden" aria-label="Close" id='close-menu'></button>
+    </div>
+    <div id='menu' class='hidden'>
+      <a id='close-option'>Close</a>
+      <a href="index.html">Index</a>
+      <a href='index.html'>About</a>
+    </div>
+    <script src="nav.js"></script>
+  </header>
+  <div id='main-content'>
+    <section>
+      <h1 id='header'>Causes of Deaths in the United States</h1>
+      <h1 class='underline'>Diagrams</h1>
+      <h3 class='diagram-header'>Matthew's Diagrams</h3>
+      <div class='diagram-container'>
+        <img src='IMG_5339.jpeg' class='diagram'/>
+        <img src='IMG_5340.jpeg' class='diagram'/>
+        <img src='IMG_5341.jpeg' class='diagram'/>
+        <img src='IMG_5342.jpeg' class='diagram'/>
+      </div>
+      <h5>Evaluation of Matthew's Diagrams</h5>
+      <ul>
+        <li>Signifier -- hovering over each state shows outline/indicates that micro page exists</li>
+        <li>Mapping -- map of US to indicate states</li>
+        <li>Comfort -- bad because each graph takes up a lot of space and is on their own line.</li>
+        <li>Understandability -- The design is very simplistic with only a few visual graphs and minimal text. This makes it easy for anyone to understand. The order of the graphs goes from the largest idea (map of US) to smaller ideas (individual causes of deaths).</li>
+        <li>Achievability -- only a few graphs, all possible with plotly library. Not too much that it would take too long either. The CSS is pretty simple as well.</li>
+      </ul>
+      <h3 class='diagram-header'>Ben's Diagrams</h3>
+      <img src='IMG_0234.png' class='diagram'/>
+      <img src='IMG_0235.png' class='diagram'/>
+      <h5>Evaluation of Ben's Diagrams</h5>
+      <ul>
+        <li>Signifier — hovering over each state shows top-level data and indicates that a micro view exists</li>
+        <li>Mapping — Map of US shows states and provides a familiar indication of where to click</li>
+        <li>Discoverability — Buttons/features are not hidden behind a lot of menus, making it very easy to figure out the program's capabilities</li>
+        <li>Achievability — Not making very many graphs or performing complicated data analysis will make this managable. Getting data by hovering might make for a challenge</li>
+        <li>Understandability — The design isn't overly complicated or technical and it is fairly intuitive, so it should be very easy to extract data and useful information from</li>
+      </ul>
+      <h2>Settled Design</h2>
+      <p>We settled on a design similar to Ben's for the macro page. We decided that Ben's diagram was better because it was more simplistic and more effectively communicated the data through its graphs. However, we decided to include the feature, where the user could hover over each state and get some basic information, from Matthew's diagram. For the micro page, we have decided to use Ben's diagram again for similar reasons, but chose to include Matthew's feature that showed the total deaths and populations at the top of the micro page.<p>
+      <h1 class='underline'>Data Information</h1>
+      <p>All 50 states, every year from 1999-2020</p>
+      <h2>Causes of Deaths Measured</h2>
+      <ol>
+        <li>Certain infectious and parasitic diseases</li>
+        <li>Neoplasms</li>
+        <li>Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism</li>
+        <li>Endocrine, nutritional and metabolic diseases</li>
+        <li>Mental and behavioural disorders</li>
+        <li>Diseases of the nervous system</li>
+        <li>Diseases of the eye and adnexa</li>
+        <li>Diseases of the ear and mastoid process</li>
+        <li>Diseases of the circulatory system</li>
+        <li>Diseases of the respiratory system</li>
+        <li>Diseases of the digestive system</li>
+        <li>Diseases of the skin and subcutaneous tissue</li>
+        <li>Diseases of the musculoskeletal system and connective tissue</li>
+        <li>Diseases of the genitourinary system</li>
+        <li>Pregnancy, childbirth and the puerperium</li>
+        <li>Certain conditions originating in the perinatal period</li>
+        <li>Congenital malformations, deformations and chromosomal abnormalities</li>
+        <li>Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified</li>
+        <li>Codes for special purposes</li>
+        <li>External causes of morbidity and mortality</li>
+      </ol>
+      <h1 class='underline'>Division of Labor</h1>
+      <h3>Matthew's Work</h3>
+        <li>Created about.html</li>
+        <li>Create micro-page and all graphs associated with micro-page</li>
+        <li>Will do CSS for both micro and macro pages</li>
+        <li>Will do all extracredits, including links to previous and next micro summaries</li>
+      <h3>Ben's Work</h3>
+      <ol>
+        <li>Collected Data</li>
+        <li>Created generateJSON.js</li>
+        <li>Will create entire macro page including macro graph and links to micropages</li>
+        <li>Will write javascript for functionality of macro and micro pages</li>
+      </ol>
+    </section>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+  <script src="nav.js"></script>
+</body>
+</html>
