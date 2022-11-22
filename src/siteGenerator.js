@@ -12,12 +12,11 @@ let state_template = fs.readFileSync('views/state.ejs', 'utf8');
 for (state in state_info){
   let state_html = ejs.render(state_template, {
     filename: __dirname + '/views/state.ejs',
-    stats: state_info[state],
+    data: state_info[state],
     name: state
   });
   state_info[state].link = getBetterFileName(state);
   fs.writeFileSync('../public/'+state_info[state].link+'.html', state_html, 'utf8');
-
 }
 
 /*
