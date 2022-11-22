@@ -13,9 +13,10 @@
   <h2>Insert <%= name %>'s image</h2>
   <h2>Stats</h2>
   <img src="placeholder.png" class="diagram">
+  <h1>This data will be shown through the graph but here's the data</h1>
   <table>
     <tr>
-      <th></th>
+      <th>Causes</th>
       <%for(cause in data['2001']){ %>
         <th>
           <%=cause%>
@@ -26,6 +27,7 @@
       <% for(year in data){ %>
         <tr>
           <th><%= year %></th>
+          <th><%= data[year].population %></th>
           <% for(cause in data[year]){ %>
           <td><%= data[year][cause].deaths %></td>
           <% } %>
