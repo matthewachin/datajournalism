@@ -18,6 +18,7 @@ copy('IMG_5341.jpeg','images/')
 copy('IMG_5342.jpeg','images/')
 copy('IMG_0234.png','images/')
 copy('IMG_0235.png','images/')
+copy('menu-icon.png', 'images/')
 
 
 function getBetterFileName(stateName){
