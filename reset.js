@@ -19,7 +19,8 @@ copy('IMG_5342.jpeg','images/')
 copy('IMG_0234.png','images/')
 copy('IMG_0235.png','images/')
 copy('menu-icon.png', 'images/')
-
+copy('dia.png', 'images/')
+copy('placeholder.png','images/')
 
 function getBetterFileName(stateName){
   let betterFileName = stateName.split(" ").join("_");
@@ -33,5 +34,6 @@ function copy(fileName, path=''){
   if(fs.existsSync('public/'+fileName)){
     fs.unlinkSync('public/'+fileName)
   }
-  fs.writeFileSync('public/'+fileName, fs.readFileSync('src/'+path+fileName))
+  let data = fs.readFileSync('src/'+path+fileName)
+  fs.writeFileSync('public/'+fileName, data)
 }
