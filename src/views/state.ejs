@@ -25,7 +25,7 @@
     </tr>
       <% for(year in data){ %>
         <tr>
-          <td><%= data[year] %></td>
+          <th><%= data.year %></th>
           <% for(cause in data[year]){ %>
           <td><%= data[year][cause].deaths %></td>
           <% } %>
