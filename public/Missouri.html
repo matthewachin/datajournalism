@@ -55,11 +55,12 @@
 <script>
 let xData = []
 let yData = []
-for(year in data){
+for(year in data[name]){
   xData.push(year)
   console.log(xData)
-  console.log(data[year]['Neoplasms']['deaths'])
-  yData.push(data[year]['Neoplasms']['deaths'])
+  console.log(year + " neoplasm deaths:" + data[name][year]['Neoplasms']['deaths'])
+  yData.push(data[name][year]['Neoplasms']['deaths'])
+  console.log("ydata:")
   console.log(yData)
 }
 	NEOPLASMS = document.getElementById('Neoplasms');
@@ -108,6 +109,8 @@ for(year in data){
     
     <td>3687</td>
     
+    <td></td>
+    
   </tr>
 
   <tr>
@@ -147,6 +150,8 @@ for(year in data){
     <td>379</td>
     
     <td>3607</td>
+    
+    <td></td>
     
   </tr>
 
@@ -190,6 +195,8 @@ for(year in data){
     
     <td>3775</td>
     
+    <td></td>
+    
   </tr>
 
   <tr>
@@ -229,6 +236,8 @@ for(year in data){
     <td>387</td>
     
     <td>3826</td>
+    
+    <td></td>
     
   </tr>
 
@@ -270,6 +279,8 @@ for(year in data){
     
     <td>3931</td>
     
+    <td></td>
+    
   </tr>
 
   <tr>
@@ -309,6 +320,8 @@ for(year in data){
     <td>301</td>
     
     <td>3913</td>
+    
+    <td></td>
     
   </tr>
 
@@ -352,6 +365,8 @@ for(year in data){
     
     <td>4111</td>
     
+    <td></td>
+    
   </tr>
 
   <tr>
@@ -393,6 +408,8 @@ for(year in data){
     <td>328</td>
     
     <td>4351</td>
+    
+    <td></td>
     
   </tr>
 
@@ -436,6 +453,8 @@ for(year in data){
     
     <td>4324</td>
     
+    <td></td>
+    
   </tr>
 
   <tr>
@@ -477,6 +496,8 @@ for(year in data){
     <td>355</td>
     
     <td>4390</td>
+    
+    <td></td>
     
   </tr>
 
@@ -520,6 +541,8 @@ for(year in data){
     
     <td>4361</td>
     
+    <td></td>
+    
   </tr>
 
   <tr>
@@ -561,6 +584,8 @@ for(year in data){
     <td>363</td>
     
     <td>4440</td>
+    
+    <td></td>
     
   </tr>
 
@@ -604,6 +629,8 @@ for(year in data){
     
     <td>4677</td>
     
+    <td></td>
+    
   </tr>
 
   <tr>
@@ -645,6 +672,8 @@ for(year in data){
     <td>412</td>
     
     <td>4492</td>
+    
+    <td></td>
     
   </tr>
 
@@ -688,6 +717,8 @@ for(year in data){
     
     <td>4503</td>
     
+    <td></td>
+    
   </tr>
 
   <tr>
@@ -729,6 +760,8 @@ for(year in data){
     <td>398</td>
     
     <td>4735</td>
+    
+    <td></td>
     
   </tr>
 
@@ -772,6 +805,8 @@ for(year in data){
     
     <td>5070</td>
     
+    <td></td>
+    
   </tr>
 
   <tr>
@@ -813,6 +848,8 @@ for(year in data){
     <td>441</td>
     
     <td>5504</td>
+    
+    <td></td>
     
   </tr>
 
@@ -856,6 +893,8 @@ for(year in data){
     
     <td>5746</td>
     
+    <td></td>
+    
   </tr>
 
   <tr>
@@ -898,6 +937,8 @@ for(year in data){
     
     <td>6050</td>
     
+    <td></td>
+    
   </tr>
 
   <tr>
@@ -939,6 +980,8 @@ for(year in data){
     <td>508</td>
     
     <td>5900</td>
+    
+    <td></td>
     
   </tr>
 
@@ -983,6 +1026,8 @@ for(year in data){
     <td>7139</td>
     
     <td>6553</td>
+    
+    <td></td>
     
   </tr>
 
@@ -1068,6 +1113,10 @@ for(year in data){
           External causes of morbidity and mortality
         </th>
         
+        <th>
+          total_deaths
+        </th>
+        
 
     </tr>
       
@@ -1109,6 +1158,8 @@ for(year in data){
           
           <td>3687</td>
           
+          <td></td>
+          
         </tr>
       
         <tr>
@@ -1148,6 +1199,8 @@ for(year in data){
           <td>379</td>
           
           <td>3607</td>
+          
+          <td></td>
           
         </tr>
       
@@ -1191,6 +1244,8 @@ for(year in data){
           
           <td>3775</td>
           
+          <td></td>
+          
         </tr>
       
         <tr>
@@ -1230,6 +1285,8 @@ for(year in data){
           <td>387</td>
           
           <td>3826</td>
+          
+          <td></td>
           
         </tr>
       
@@ -1271,6 +1328,8 @@ for(year in data){
           
           <td>3931</td>
           
+          <td></td>
+          
         </tr>
       
         <tr>
@@ -1310,6 +1369,8 @@ for(year in data){
           <td>301</td>
           
           <td>3913</td>
+          
+          <td></td>
           
         </tr>
       
@@ -1353,6 +1414,8 @@ for(year in data){
           
           <td>4111</td>
           
+          <td></td>
+          
         </tr>
       
         <tr>
@@ -1394,6 +1457,8 @@ for(year in data){
           <td>328</td>
           
           <td>4351</td>
+          
+          <td></td>
           
         </tr>
       
@@ -1437,6 +1502,8 @@ for(year in data){
           
           <td>4324</td>
           
+          <td></td>
+          
         </tr>
       
         <tr>
@@ -1478,6 +1545,8 @@ for(year in data){
           <td>355</td>
           
           <td>4390</td>
+          
+          <td></td>
           
         </tr>
       
@@ -1521,6 +1590,8 @@ for(year in data){
           
           <td>4361</td>
           
+          <td></td>
+          
         </tr>
       
         <tr>
@@ -1562,6 +1633,8 @@ for(year in data){
           <td>363</td>
           
           <td>4440</td>
+          
+          <td></td>
           
         </tr>
       
@@ -1605,6 +1678,8 @@ for(year in data){
           
           <td>4677</td>
           
+          <td></td>
+          
         </tr>
       
         <tr>
@@ -1646,6 +1721,8 @@ for(year in data){
           <td>412</td>
           
           <td>4492</td>
+          
+          <td></td>
           
         </tr>
       
@@ -1689,6 +1766,8 @@ for(year in data){
           
           <td>4503</td>
           
+          <td></td>
+          
         </tr>
       
         <tr>
@@ -1730,6 +1809,8 @@ for(year in data){
           <td>398</td>
           
           <td>4735</td>
+          
+          <td></td>
           
         </tr>
       
@@ -1773,6 +1854,8 @@ for(year in data){
           
           <td>5070</td>
           
+          <td></td>
+          
         </tr>
       
         <tr>
@@ -1814,6 +1897,8 @@ for(year in data){
           <td>441</td>
           
           <td>5504</td>
+          
+          <td></td>
           
         </tr>
       
@@ -1857,6 +1942,8 @@ for(year in data){
           
           <td>5746</td>
           
+          <td></td>
+          
         </tr>
       
         <tr>
@@ -1899,6 +1986,8 @@ for(year in data){
           
           <td>6050</td>
           
+          <td></td>
+          
         </tr>
       
         <tr>
@@ -1940,6 +2029,8 @@ for(year in data){
           <td>508</td>
           
           <td>5900</td>
+          
+          <td></td>
           
         </tr>
       
@@ -1984,6 +2075,8 @@ for(year in data){
           <td>7139</td>
           
           <td>6553</td>
+          
+          <td></td>
           
         </tr>
       
