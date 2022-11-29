@@ -33,6 +33,20 @@ deathData.forEach(function(death){
 
   }
 })
+for(state_name in final_data){
+  let state = final_data[state_name]
+  for(year in state){
+    let state_2 = final_data[state_name][year]
+    let total_deaths = 0
+    for(cause in state_2){
+      if(cause !== 'population'){
+        let deaths = final_data[state_name][year][cause].deaths
+        total_deaths += Number(deaths)
+      }
+    }
+    state_2['total_deaths'] = total_deaths
+  }
+}
 
 
 fs.writeFileSync('data.json', JSON.stringify(final_data), 'utf8')
