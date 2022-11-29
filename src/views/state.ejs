@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
-<div id="tester" style="width:600px;height:250px;"></div>
+<head>
+   <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+</head>
 
 <%- include ('global/header.ejs'); %>
 
@@ -14,13 +16,10 @@
   <h2>Insert <%= name %>'s image</h2>
   <h2>Stats</h2>
   <img src="placeholder.png" class="diagram">
-  <%
-	TESTER = document.getElementById('tester');
-	Plotly.newPlot( TESTER, [{
-	x: [1, 2, 3, 4, 5],
-	y: [1, 2, 4, 8, 16] }], {
-	margin: { t: 0 } } );
-%>
+<div id="tester" style="width:600px;height:250px;"></div>
+<p>
+  chart should be above this text
+</p>
   <div id="chart"></div>
 
   <h1>This data will be shown through the graph but here's the data</h1>
