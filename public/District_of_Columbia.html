@@ -43,6 +43,913 @@
   <h2>Stats</h2>
   <img src="placeholder.png" class="diagram">
 <div id="tester" style="width:600px;height:250px;"></div>
+
+<script>
+	TESTER = document.getElementById('tester');
+	Plotly.newPlot( TESTER, [{
+	x: [1, 2, 3, 4, 5],
+	y: [1, 2, 4, 8, 16] }], {
+	margin: { t: 0 } } );
+</script>
+<div id="Neoplasms" style="width:600px;height:250px;"></div>
+<script>
+let xData = []
+let yData = []
+for(year in data){
+  xData.push(year)
+  console.log(xData)
+  console.log(data[year]['Neoplasms']['deaths'])
+  yData.push(data[year]['Neoplasms']['deaths'])
+  console.log(yData)
+}
+	NEOPLASMS = document.getElementById('Neoplasms');
+	Plotly.newPlot( NEOPLASMS, [{
+	x: xData,
+	y: yData }], {
+	margin: { t: 0 } } );
+</script>
+
+
+  <tr>
+    <th>1999</th>
+    <th>570213</th>
+    
+    <td></td>
+    
+    <td>457</td>
+    
+    <td>1370</td>
+    
+    <td>50</td>
+    
+    <td>276</td>
+    
+    <td>110</td>
+    
+    <td>127</td>
+    
+    <td>2099</td>
+    
+    <td>373</td>
+    
+    <td>206</td>
+    
+    <td>25</td>
+    
+    <td>20</td>
+    
+    <td>141</td>
+    
+    <td>78</td>
+    
+    <td>21</td>
+    
+    <td>331</td>
+    
+    <td>389</td>
+    
+  </tr>
+
+  <tr>
+    <th>2000</th>
+    <th>572059</th>
+    
+    <td></td>
+    
+    <td>434</td>
+    
+    <td>1364</td>
+    
+    <td>36</td>
+    
+    <td>273</td>
+    
+    <td>136</td>
+    
+    <td>153</td>
+    
+    <td>2149</td>
+    
+    <td>364</td>
+    
+    <td>182</td>
+    
+    <td>21</td>
+    
+    <td>31</td>
+    
+    <td>132</td>
+    
+    <td>55</td>
+    
+    <td>29</td>
+    
+    <td>211</td>
+    
+    <td>427</td>
+    
+  </tr>
+
+  <tr>
+    <th>2001</th>
+    <th>574504</th>
+    
+    <td></td>
+    
+    <td>374</td>
+    
+    <td>1352</td>
+    
+    <td>32</td>
+    
+    <td>277</td>
+    
+    <td>117</td>
+    
+    <td>189</td>
+    
+    <td>2164</td>
+    
+    <td>311</td>
+    
+    <td>194</td>
+    
+    <td>21</td>
+    
+    <td>40</td>
+    
+    <td>122</td>
+    
+    <td>49</td>
+    
+    <td>29</td>
+    
+    <td>194</td>
+    
+    <td>15</td>
+    
+    <td>469</td>
+    
+  </tr>
+
+  <tr>
+    <th>2002</th>
+    <th>573158</th>
+    
+    <td></td>
+    
+    <td>403</td>
+    
+    <td>1324</td>
+    
+    <td>36</td>
+    
+    <td>252</td>
+    
+    <td>127</td>
+    
+    <td>185</td>
+    
+    <td>2048</td>
+    
+    <td>289</td>
+    
+    <td>211</td>
+    
+    <td>23</td>
+    
+    <td>45</td>
+    
+    <td>110</td>
+    
+    <td>44</td>
+    
+    <td>20</td>
+    
+    <td>255</td>
+    
+    <td>479</td>
+    
+  </tr>
+
+  <tr>
+    <th>2003</th>
+    <th>568502</th>
+    
+    <td></td>
+    
+    <td>405</td>
+    
+    <td>1144</td>
+    
+    <td>45</td>
+    
+    <td>225</td>
+    
+    <td>131</td>
+    
+    <td>177</td>
+    
+    <td>2019</td>
+    
+    <td>299</td>
+    
+    <td>187</td>
+    
+    <td>25</td>
+    
+    <td>42</td>
+    
+    <td>113</td>
+    
+    <td>44</td>
+    
+    <td>21</td>
+    
+    <td>213</td>
+    
+    <td>480</td>
+    
+  </tr>
+
+  <tr>
+    <th>2004</th>
+    <th>567754</th>
+    
+    <td></td>
+    
+    <td>395</td>
+    
+    <td>1175</td>
+    
+    <td>33</td>
+    
+    <td>293</td>
+    
+    <td>144</td>
+    
+    <td>201</td>
+    
+    <td>1899</td>
+    
+    <td>342</td>
+    
+    <td>210</td>
+    
+    <td>14</td>
+    
+    <td>34</td>
+    
+    <td>124</td>
+    
+    <td>69</td>
+    
+    <td>21</td>
+    
+    <td>46</td>
+    
+    <td>446</td>
+    
+  </tr>
+
+  <tr>
+    <th>2005</th>
+    <th>567136</th>
+    
+    <td></td>
+    
+    <td>399</td>
+    
+    <td>1168</td>
+    
+    <td>35</td>
+    
+    <td>239</td>
+    
+    <td>138</td>
+    
+    <td>190</td>
+    
+    <td>1900</td>
+    
+    <td>303</td>
+    
+    <td>198</td>
+    
+    <td>20</td>
+    
+    <td>22</td>
+    
+    <td>120</td>
+    
+    <td>65</td>
+    
+    <td>22</td>
+    
+    <td>203</td>
+    
+    <td>459</td>
+    
+  </tr>
+
+  <tr>
+    <th>2006</th>
+    <th>570681</th>
+    
+    <td></td>
+    
+    <td>386</td>
+    
+    <td>1207</td>
+    
+    <td>41</td>
+    
+    <td>226</td>
+    
+    <td>173</td>
+    
+    <td>209</td>
+    
+    <td>1921</td>
+    
+    <td>265</td>
+    
+    <td>183</td>
+    
+    <td>18</td>
+    
+    <td>28</td>
+    
+    <td>110</td>
+    
+    <td>58</td>
+    
+    <td>33</td>
+    
+    <td>41</td>
+    
+    <td>438</td>
+    
+  </tr>
+
+  <tr>
+    <th>2007</th>
+    <th>574404</th>
+    
+    <td></td>
+    
+    <td>351</td>
+    
+    <td>1198</td>
+    
+    <td>29</td>
+    
+    <td>193</td>
+    
+    <td>182</td>
+    
+    <td>202</td>
+    
+    <td>1783</td>
+    
+    <td>281</td>
+    
+    <td>168</td>
+    
+    <td>31</td>
+    
+    <td>96</td>
+    
+    <td>71</td>
+    
+    <td>33</td>
+    
+    <td>137</td>
+    
+    <td>419</td>
+    
+  </tr>
+
+  <tr>
+    <th>2008</th>
+    <th>580236</th>
+    
+    <td></td>
+    
+    <td>329</td>
+    
+    <td>1171</td>
+    
+    <td>33</td>
+    
+    <td>204</td>
+    
+    <td>179</td>
+    
+    <td>211</td>
+    
+    <td>1735</td>
+    
+    <td>295</td>
+    
+    <td>174</td>
+    
+    <td>10</td>
+    
+    <td>32</td>
+    
+    <td>103</td>
+    
+    <td>66</td>
+    
+    <td>21</td>
+    
+    <td>169</td>
+    
+    <td>400</td>
+    
+  </tr>
+
+  <tr>
+    <th>2009</th>
+    <th>592228</th>
+    
+    <td></td>
+    
+    <td>302</td>
+    
+    <td>1159</td>
+    
+    <td>29</td>
+    
+    <td>176</td>
+    
+    <td>169</td>
+    
+    <td>169</td>
+    
+    <td>1584</td>
+    
+    <td>273</td>
+    
+    <td>149</td>
+    
+    <td>16</td>
+    
+    <td>33</td>
+    
+    <td>88</td>
+    
+    <td>41</td>
+    
+    <td>23</td>
+    
+    <td>291</td>
+    
+    <td>329</td>
+    
+  </tr>
+
+  <tr>
+    <th>2010</th>
+    <th>601723</th>
+    
+    <td></td>
+    
+    <td>258</td>
+    
+    <td>1062</td>
+    
+    <td>23</td>
+    
+    <td>200</td>
+    
+    <td>195</td>
+    
+    <td>202</td>
+    
+    <td>1600</td>
+    
+    <td>302</td>
+    
+    <td>163</td>
+    
+    <td>16</td>
+    
+    <td>33</td>
+    
+    <td>118</td>
+    
+    <td>39</td>
+    
+    <td>22</td>
+    
+    <td>34</td>
+    
+    <td>400</td>
+    
+  </tr>
+
+  <tr>
+    <th>2011</th>
+    <th>617996</th>
+    
+    <td></td>
+    
+    <td>259</td>
+    
+    <td>1092</td>
+    
+    <td>25</td>
+    
+    <td>209</td>
+    
+    <td>228</td>
+    
+    <td>203</td>
+    
+    <td>1504</td>
+    
+    <td>310</td>
+    
+    <td>135</td>
+    
+    <td>13</td>
+    
+    <td>26</td>
+    
+    <td>93</td>
+    
+    <td>51</td>
+    
+    <td>19</td>
+    
+    <td>50</td>
+    
+    <td>365</td>
+    
+  </tr>
+
+  <tr>
+    <th>2012</th>
+    <th>632323</th>
+    
+    <td></td>
+    
+    <td>234</td>
+    
+    <td>1103</td>
+    
+    <td>31</td>
+    
+    <td>207</td>
+    
+    <td>204</td>
+    
+    <td>207</td>
+    
+    <td>1627</td>
+    
+    <td>271</td>
+    
+    <td>173</td>
+    
+    <td>14</td>
+    
+    <td>29</td>
+    
+    <td>75</td>
+    
+    <td>45</td>
+    
+    <td>22</td>
+    
+    <td>70</td>
+    
+    <td>336</td>
+    
+  </tr>
+
+  <tr>
+    <th>2013</th>
+    <th>646449</th>
+    
+    <td></td>
+    
+    <td>215</td>
+    
+    <td>1121</td>
+    
+    <td>24</td>
+    
+    <td>172</td>
+    
+    <td>243</td>
+    
+    <td>228</td>
+    
+    <td>1640</td>
+    
+    <td>309</td>
+    
+    <td>163</td>
+    
+    <td>11</td>
+    
+    <td>21</td>
+    
+    <td>88</td>
+    
+    <td>43</td>
+    
+    <td>13</td>
+    
+    <td>50</td>
+    
+    <td>373</td>
+    
+  </tr>
+
+  <tr>
+    <th>2014</th>
+    <th>658893</th>
+    
+    <td></td>
+    
+    <td>218</td>
+    
+    <td>1149</td>
+    
+    <td>31</td>
+    
+    <td>179</td>
+    
+    <td>221</td>
+    
+    <td>212</td>
+    
+    <td>1657</td>
+    
+    <td>284</td>
+    
+    <td>167</td>
+    
+    <td>21</td>
+    
+    <td>81</td>
+    
+    <td>36</td>
+    
+    <td>27</td>
+    
+    <td>38</td>
+    
+    <td>390</td>
+    
+  </tr>
+
+  <tr>
+    <th>2015</th>
+    <th>672228</th>
+    
+    <td></td>
+    
+    <td>233</td>
+    
+    <td>1096</td>
+    
+    <td>26</td>
+    
+    <td>214</td>
+    
+    <td>202</td>
+    
+    <td>259</td>
+    
+    <td>1601</td>
+    
+    <td>342</td>
+    
+    <td>193</td>
+    
+    <td>15</td>
+    
+    <td>19</td>
+    
+    <td>91</td>
+    
+    <td>46</td>
+    
+    <td>20</td>
+    
+    <td>46</td>
+    
+    <td>465</td>
+    
+  </tr>
+
+  <tr>
+    <th>2016</th>
+    <th>681170</th>
+    
+    <td></td>
+    
+    <td>224</td>
+    
+    <td>1070</td>
+    
+    <td>28</td>
+    
+    <td>191</td>
+    
+    <td>203</td>
+    
+    <td>252</td>
+    
+    <td>1752</td>
+    
+    <td>300</td>
+    
+    <td>160</td>
+    
+    <td>12</td>
+    
+    <td>29</td>
+    
+    <td>104</td>
+    
+    <td>44</td>
+    
+    <td>25</td>
+    
+    <td>35</td>
+    
+    <td>606</td>
+    
+  </tr>
+
+  <tr>
+    <th>2017</th>
+    <th>693972</th>
+    
+    <td></td>
+    
+    <td>195</td>
+    
+    <td>1061</td>
+    
+    <td>20</td>
+    
+    <td>194</td>
+    
+    <td>209</td>
+    
+    <td>282</td>
+    
+    <td>1677</td>
+    
+    <td>279</td>
+    
+    <td>163</td>
+    
+    <td>12</td>
+    
+    <td>29</td>
+    
+    <td>108</td>
+    
+    <td>43</td>
+    
+    <td>25</td>
+    
+    <td>37</td>
+    
+    <td>629</td>
+    
+  </tr>
+
+  <tr>
+    <th>2018</th>
+    <th>702455</th>
+    
+    <td></td>
+    
+    <td>176</td>
+    
+    <td>1096</td>
+    
+    <td>25</td>
+    
+    <td>213</td>
+    
+    <td>178</td>
+    
+    <td>308</td>
+    
+    <td>1681</td>
+    
+    <td>316</td>
+    
+    <td>176</td>
+    
+    <td>12</td>
+    
+    <td>20</td>
+    
+    <td>95</td>
+    
+    <td>31</td>
+    
+    <td>29</td>
+    
+    <td>25</td>
+    
+    <td>623</td>
+    
+  </tr>
+
+  <tr>
+    <th>2019</th>
+    <th>705749</th>
+    
+    <td></td>
+    
+    <td>214</td>
+    
+    <td>1045</td>
+    
+    <td>16</td>
+    
+    <td>218</td>
+    
+    <td>211</td>
+    
+    <td>258</td>
+    
+    <td>1625</td>
+    
+    <td>297</td>
+    
+    <td>169</td>
+    
+    <td>12</td>
+    
+    <td>33</td>
+    
+    <td>86</td>
+    
+    <td>22</td>
+    
+    <td>16</td>
+    
+    <td>21</td>
+    
+    <td>680</td>
+    
+  </tr>
+
+  <tr>
+    <th>2020 </th>
+    <th>712816</th>
+    
+    <td></td>
+    
+    <td>189</td>
+    
+    <td>1001</td>
+    
+    <td>21</td>
+    
+    <td>268</td>
+    
+    <td>279</td>
+    
+    <td>266</td>
+    
+    <td>1798</td>
+    
+    <td>323</td>
+    
+    <td>182</td>
+    
+    <td>14</td>
+    
+    <td>37</td>
+    
+    <td>82</td>
+    
+    <td>19</td>
+    
+    <td>19</td>
+    
+    <td>31</td>
+    
+    <td>831</td>
+    
+    <td>834</td>
+    
+  </tr>
+
 <p>
   chart should be above this text
 </p>
