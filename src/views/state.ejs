@@ -3,7 +3,7 @@
 <head>
    <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
 </head>
-
+<p id='state_data' class="hidden"><%= JSON.stringify(data)%></p>
 <%- include ('global/header.ejs'); %>
 
 <body>
@@ -27,10 +27,7 @@
 </script>
 <div id="Neoplasms" style="width:600px;height:250px;"></div>
 <script>
-const fs = require('fs');
-let stateName = document.getElementById('state_title').innerHTML.slice(10)
-let data = JSON.parse(fs.readFileSync('../../data/data.json', 'utf8'))
-data = data[stateName]
+let data = JSON.parse(document.getElementById("state_data").innerHTML)
 let xData = []
 let yData = []
 for(year in data[name]){
