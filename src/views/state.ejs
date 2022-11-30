@@ -9,7 +9,7 @@
 <body>
   <%- include ('global/navbar.ejs'); %>
   <header>
-    <h1>Deaths in <%=name%></h1>
+    <h1 id="state_title">Deaths in <%=name%></h1>
   </header>
 
   <section id="state-stats">
@@ -27,6 +27,9 @@
 </script>
 <div id="Neoplasms" style="width:600px;height:250px;"></div>
 <script>
+let stateName = document.getaElementById('state_title').slice(10)
+let data = JSON.parse(fs.readFileSync('../../data/data.json', 'utf8'))
+data = data[stateName]
 let xData = []
 let yData = []
 for(year in data[name]){
