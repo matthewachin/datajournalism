@@ -42,28 +42,19 @@
   <h2>Insert Maryland's image</h2>
   <h2>Stats</h2>
   <img src="placeholder.png" class="diagram">
-<div id="tester" style="width:600px;height:250px;"></div>
 
-<script>
-	TESTER = document.getElementById('tester');
-	Plotly.newPlot( TESTER, [{
-	x: [1, 2, 3, 4, 5],
-	y: [1, 2, 4, 8, 16] }], {
-	margin: { t: 0 } } );
-</script>
 <div id="Neoplasms" style="width:600px;height:250px;"></div>
 <script>
 let data = JSON.parse(document.getElementById("state_data").innerHTML)
+console.log(data)
 let xData = []
 let yData = []
-for(year in data[name]){
+for(year in data){
   xData.push(year)
-  console.log(xData)
-  console.log(year + " neoplasm deaths:" + data[name][year]['Neoplasms']['deaths'])
-  yData.push(data[name][year]['Neoplasms']['deaths'])
-  console.log("ydata:")
-  console.log(yData)
+  yData.push(data[year]['Neoplasms']['deaths'])
 }
+console.log(xData)
+console.log(yData)
 	NEOPLASMS = document.getElementById('Neoplasms');
 	Plotly.newPlot( NEOPLASMS, [{
 	x: xData,
