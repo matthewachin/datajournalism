@@ -39,34 +39,37 @@ console.log(yData)
 	margin: { t: 0 } } );
 </script>
 
+<div id="Deaths" style="width:600px;height:600px;"></div>
+
 <script>
-let data = JSON.parse(document.getElementById("state_data").innerHTML)
-let xData = []
-let yData = []
-for(year in data){
-  for(cause in data[year]){
-    var cause = {
-    x: xData,
-    y: [20, 14, 23],
-    name: cause,
-    type: 'bar'
-    };
+var stackedData = [];
+let causes = []
+for(cause in data['2001']){
+  causes.push(cause);
+}
+//add object of each COD's data to array
+
+for(cause in causes){
+  let xData = []
+  let yData = []
+  for(year in data){
+  xData.push(year)
+  yData.push(data[year]['Neoplasms']['deaths'])
   }
+  var causeObj = {
+  x: xData,
+  y: yData,
+  name: cause,
+  type: 'bar'
+  };
+  stackedData.push(causeObj);
 }
 
 
-var trace2 = {
-x: ['giraffes', 'orangutans', 'monkeys'],
-y: [12, 18, 29],
-name: 'LA Zoo',
-type: 'bar'
-};
-
-var data = [trace1, trace2];
-
 var layout = {barmode: 'stack'};
 
-Plotly.newPlot('myDiv', data, layout);
+
+Plotly.newPlot('Deaths', stackedData, layout);
 </script>
 
 <% for(year in data){ %>

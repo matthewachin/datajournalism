@@ -44,6 +44,9 @@
   <img src="placeholder.png" class="diagram">
 
 <div id="Neoplasms" style="width:600px;height:250px;"></div>
+
+
+
 <script>
 let data = JSON.parse(document.getElementById("state_data").innerHTML)
 console.log(data)
@@ -60,6 +63,39 @@ console.log(yData)
 	x: xData,
 	y: yData }], {
 	margin: { t: 0 } } );
+</script>
+
+<div id="Deaths" style="width:600px;height:600px;"></div>
+
+<script>
+var stackedData = [];
+let causes = []
+for(cause in data['2001']){
+  causes.push(cause);
+}
+//add object of each COD's data to array
+
+for(cause in causes){
+  let xData = []
+  let yData = []
+  for(year in data){
+  xData.push(year)
+  yData.push(data[year]['Neoplasms']['deaths'])
+  }
+  var causeObj = {
+  x: xData,
+  y: yData,
+  name: cause,
+  type: 'bar'
+  };
+  stackedData.push(causeObj);
+}
+
+
+var layout = {barmode: 'stack'};
+
+
+Plotly.newPlot('Deaths', stackedData, layout);
 </script>
 
 
