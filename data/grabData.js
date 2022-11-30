@@ -10,10 +10,9 @@ for(state of states){
 }
 let fString = ''
 for(state in data){
-  console.log(state)
   let stateData = data[state]['2020 ']
-  console.log(stateData)
   let population = Number(stateData['population'])
   let total_deaths = Number(stateData['total_deaths'])
-  console.log('Population: ' + String(population) + ', Deaths: ' + String(total_deaths))
+//  console.log(String(state) + 'Population: ' + String(population) + ', Deaths: ' + String(total_deaths))
+  console.log()
 }
