@@ -35,7 +35,7 @@
   <script src="nav.js"></script>
 </header>
   <header>
-    <h1>Deaths in Kansas</h1>
+    <h1 id="state_title">Deaths in Kansas</h1>
   </header>
 
   <section id="state-stats">
@@ -53,6 +53,10 @@
 </script>
 <div id="Neoplasms" style="width:600px;height:250px;"></div>
 <script>
+const fs = require('fs');
+let stateName = document.getElementById('state_title').innerHTML.slice(10)
+let data = JSON.parse(fs.readFileSync('../../data/data.json', 'utf8'))
+data = data[stateName]
 let xData = []
 let yData = []
 for(year in data[name]){

@@ -27,7 +27,8 @@
 </script>
 <div id="Neoplasms" style="width:600px;height:250px;"></div>
 <script>
-let stateName = document.getaElementById('state_title').slice(10)
+const fs = require('fs');
+let stateName = document.getElementById('state_title').innerHTML.slice(10)
 let data = JSON.parse(fs.readFileSync('../../data/data.json', 'utf8'))
 data = data[stateName]
 let xData = []
