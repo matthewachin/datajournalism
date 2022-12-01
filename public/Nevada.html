@@ -65,7 +65,7 @@ for(year in data){
 	margin: { t: 0 } } );
 </script>
 
-<div id="Deaths" style="width:width;height:1000px;"></div>
+<div id="Deaths" style="width:width;height:800px;"></div>
 
 <script>
 var stackedData = [];
@@ -75,6 +75,7 @@ for(cause in data['2001']){
   if(cause == "total_deaths" || cause == "population"){
 
   }else{causes.push(cause);}
+  console.log(causes)
 }
 //console.log(causes)
 //add object of each COD's data to array
@@ -83,12 +84,12 @@ for(cause of causes){
   let xData2 = []
   let yData2 = []
   let a = 'deaths'
-  console.log(cause)
+  //console.log(cause)
   for(year in data){
     if(data[year][cause].deaths != undefined){
       xData2.push(year)
       yData2.push(data[year][cause].deaths)
-      console.log(yData2)
+      //console.log(yData2)
     }
 
     //console.log(year + "'s data: ");
@@ -108,7 +109,7 @@ for(cause of causes){
   var causeObj = {
   x: xData2,
   y: yData2,
-  name: causes[cause],
+  name: cause,
   type: 'bar'
   };
   stackedData.push(causeObj);
