@@ -79,16 +79,22 @@ for(cause in data['2001']){
 //console.log(causes)
 //add object of each COD's data to array
 
-for(cause in causes){
+for(cause of causes){
   let xData2 = []
   let yData2 = []
   let a = 'deaths'
-  console.log(causes[cause])
+  console.log(cause)
   for(year in data){
+    if(data[year][cause].deaths != undefined){
+      xData2.push(year)
+      yData2.push(data[year][cause].deaths)
+      console.log(yData2)
+    }
+
     //console.log(year + "'s data: ");
     //console.log(data[year])
     //console.log(data[year][causes[cause]]['deaths'])
-    if(data[year][causes[cause]]["deaths"] != null && data[year][causes[cause]]["deaths"] != 'Unreliable'){
+    /*if(data[year][cause]["deaths"] != null && data[year][causes[cause]]["deaths"] != 'Unreliable'){
       xData2.push(year)
       yData2.push(data[year][cause]['deaths'])
       console.log(yData2)
@@ -96,6 +102,7 @@ for(cause in causes){
     }else{
       console.log('fail')
     }
+    */
   }
 
   var causeObj = {
