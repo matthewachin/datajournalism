@@ -92,3 +92,11 @@ table, th, td {
   border: 1px solid;
   color: black
 }
+#hover-text{
+  display:flex;
+  flex-direction:column;
+}
+#map_and_hoverbox{
+  display:flex;
+  flex-direction:row;
+}

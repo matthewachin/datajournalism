@@ -6,7 +6,8 @@
   <%- include ('global/navbar.ejs'); %>
   <h1>Causes of Death in the United States</h1>
   <h4>Population of US: 331.9 Million</h3>
-  
+  <div id="map_and_hoverbox">
+  <div>
   <?xml version="1.0" encoding="UTF-8" standalone="no"?>
   <svg xmlns="http://www.w3.org/2000/svg" width="959" height="593">
     <title>Blank map of the United States, territories not included</title>
@@ -14,6 +15,7 @@
   <style type="text/css">
   .state {fill:#D0D0D0}                        /* default color for all states not specified below */
   .borders {stroke:#FFFFFF; stroke-width:1}    /* color and width of borders between states */
+  .highlight-border{stroke: #000000}
   .dccircle {display:yes}                      /* set display to yes to show the circle for the District of Columbia, or none to hide it */
   .separator1 {stroke:#B0B0B0; stroke-width:2} /* color and width of lines around Alaska and Hawaii */
 
@@ -303,133 +305,14 @@
   <path class="separator1" fill="none" d="m 215,493 v 55 l 36,45 m -251,-168 h 147 l 68,68 h 85 l 54,54 v 46"/>
 
   </svg>
-  <script>
-  const stateNames = {
-    ak: 'Alaska',
-    al: 'Alabama',
-    ar: 'Arkansas',
-    az: 'Arizona',
-    ca: 'California',
-    co: 'Colorado',
-    ct: 'Connecticut',
-    dc: 'District Of Columbia',
-    de: 'Delaware',
-    fl: 'Florida',
-    ga: 'Georgia',
-    hi: 'Hawaii',
-    ia: 'Iowa',
-    id: 'Idaho',
-    il: 'Illinois',
-    in: 'Indiana',
-    ks: 'Kansas',
-    ky: 'Kentucky',
-    la: 'Louisiana',
-    ma: 'Massachusetts',
-    md: 'Maryland',
-    me: 'Maine',
-    mi: 'Michigan',
-    mn: 'Minnesota',
-    mo: 'Missouri',
-    ms: 'Mississippi',
-    mt: 'Montana',
-    nc: 'North Carolina',
-    nd: 'North Dakota',
-    ne: 'Nebraska',
-    nh: 'New Hampshire',
-    nj: 'New Jersey',
-    nm: 'New Mexico',
-    nv: 'Nevada',
-    ny: 'New York',
-    oh: 'Ohio',
-    ok: 'Oklahoma',
-    or: 'Oregon',
-    pa: 'Pennsylvania',
-    ri: 'Rhode Island',
-    sc: 'South Carolina',
-    sd: 'South Dakota',
-    tn: 'Tennessee',
-    tx: 'Texas',
-    ut: 'Utah',
-    va: 'Virginia',
-    vt: 'Vermont',
-    wa: 'Washington',
-    wi: 'Wisconsin',
-    wv: 'West Virginia',
-    wy: 'Wyoming'
-  }
-  for(abbreviation in stateNames){
-    let stateImage = document.getElementsByClassName(abbreviation)[0];
-    console.log(abbreviation)
-    console.log(stateNames[abbreviation])
-    stateImage.addEventListener('click', function(event){
-      const stateNames = {
-        ak: 'Alaska',
-        al: 'Alabama',
-        ar: 'Arkansas',
-        az: 'Arizona',
-        ca: 'California',
-        co: 'Colorado',
-        ct: 'Connecticut',
-        dc: 'District_Of_Columbia',
-        de: 'Delaware',
-        fl: 'Florida',
-        ga: 'Georgia',
-        hi: 'Hawaii',
-        ia: 'Iowa',
-        id: 'Idaho',
-        il: 'Illinois',
-        in: 'Indiana',
-        ks: 'Kansas',
-        ky: 'Kentucky',
-        la: 'Louisiana',
-        ma: 'Massachusetts',
-        md: 'Maryland',
-        me: 'Maine',
-        mi: 'Michigan',
-        mn: 'Minnesota',
-        mo: 'Missouri',
-        ms: 'Mississippi',
-        mt: 'Montana',
-        nc: 'North_Carolina',
-        nd: 'North_Dakota',
-        ne: 'Nebraska',
-        nh: 'New_Hampshire',
-        nj: 'New_Jersey',
-        nm: 'New_Mexico',
-        nv: 'Nevada',
-        ny: 'New_York',
-        oh: 'Ohio',
-        ok: 'Oklahoma',
-        or: 'Oregon',
-        pa: 'Pennsylvania',
-        ri: 'Rhode_Island',
-        sc: 'South_Carolina',
-        sd: 'South_Dakota',
-        tn: 'Tennessee',
-        tx: 'Texas',
-        ut: 'Utah',
-        va: 'Virginia',
-        vt: 'Vermont',
-        wa: 'Washington',
-        wi: 'Wisconsin',
-        wv: 'West_Virginia',
-        wy: 'Wyoming'
-      }
-      window.location.href = `${stateNames[event.target.classList[0]]}.html`
-    })
-  }
-
-  </script>
-  <div id="tester1" style="width:600px;height:250px;"></div>
-  
-  <script>
-  	TESTER = document.getElementById('tester1');
-  	Plotly.newPlot( TESTER, [{
-  	x: [1, 2, 3, 4, 5],
-  	y: [1, 2, 4, 8, 16] }], {
-  	margin: { t: 0 } } );
-  </script>
-
+  </div>
+  <div id="hover-text">
+    <h1><span id="hover-name"></span> (2020)</h1>
+    <h3>Population: <span id="hover-population"></span></h3>
+    <h3>Total Deaths: <span id="hover-total"></span></h3>
+  </div>
+</div>
+  <script src="usa_map.js"></script>
 
   <br>
   <% for(state in data){ %>
@@ -444,6 +327,7 @@
 
   <%- include ('global/footer');  %>
   <%- include ('global/scripts.ejs'); %>
+  <p id="death_data"><%= JSON.stringify(ddata) %></p>
 </body>
 
 </html>

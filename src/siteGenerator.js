@@ -10,6 +10,7 @@ let about_template = fs.readFileSync('views/about.ejs', 'utf8')
   1) Generate a web page for each state
   2) Keep track of the link for index.html
 */
+let twentytwenty_data = {}
 for (state in state_info){
   let state_html = ejs.render(state_template, {
     filename: __dirname + '/views/state.ejs',
@@ -18,6 +19,10 @@ for (state in state_info){
   });
   state_info[state].link = getBetterFileName(state);
   fs.writeFileSync('../public/'+state_info[state].link+'.html', state_html, 'utf8');
+  twentytwenty_data[state] = {
+    'population': state_info[state]['2020 ']['population'],
+    'total_deaths': state_info[state]['2020 ']['total_deaths'],
+  }
 }
 
 /*
@@ -26,7 +31,8 @@ for (state in state_info){
 
 let index_html = ejs.render(index_template, {
   filename: __dirname + '/views/index.ejs',
-  data: state_info
+  data: state_info, 
+  ddata: twentytwenty_data,
 });
 
 let about_html = ejs.render(about_template, {
