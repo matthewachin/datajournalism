@@ -16,6 +16,7 @@
   .state {fill:#D0D0D0}                        /* default color for all states not specified below */
   .borders {stroke:#FFFFFF; stroke-width:1}    /* color and width of borders between states */
   .highlight-border{stroke: #000000}
+  .highlight-state{fill: #000000}
   .dccircle {display:yes}                      /* set display to yes to show the circle for the District of Columbia, or none to hide it */
   .separator1 {stroke:#B0B0B0; stroke-width:2} /* color and width of lines around Alaska and Hawaii */
 
@@ -327,7 +328,7 @@
 
   <%- include ('global/footer');  %>
   <%- include ('global/scripts.ejs'); %>
-  <p id="death_data"><%= JSON.stringify(ddata) %></p>
+  <p id="death_data" class="hidden"><%= JSON.stringify(ddata) %></p>
 </body>
 
 </html>

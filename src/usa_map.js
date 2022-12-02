@@ -53,8 +53,6 @@ const stateNames = {
 };
 for (abbreviation in stateNames) {
   let stateImage = document.getElementsByClassName(abbreviation)[0];
-  console.log(abbreviation);
-  console.log(stateNames[abbreviation]);
   stateImage.addEventListener("click", function (event) {
     const stateNames = {
       ak: "Alaska",
@@ -223,7 +221,8 @@ for (abbreviation in stateNames) {
         .getElementsByClassName(borderCode)[0]
         .classList.add("highlight-border");
     }
-    
+
+    e.target.classList.add('highlight-state')
     document.getElementById('hover-name').innerHTML = stateNames[stateCode]
     const death_data = JSON.parse(document.getElementById('death_data').innerHTML)[stateNames[stateCode]]
     document.getElementById('hover-population').innerHTML = death_data['population']
@@ -288,5 +287,6 @@ for (abbreviation in stateNames) {
         .getElementsByClassName(borderCode)[0]
         .classList.remove("highlight-border");
     }
+    e.target.classList.remove('highlight-state')
   })
 }
