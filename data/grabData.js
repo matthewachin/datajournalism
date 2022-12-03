@@ -76,7 +76,7 @@ for(t in stateNames){
   n[String(t).toLowerCase()]=stateNames[t]
 }
 console.log(n)
-*/
+
 const combos = [
 "al-fl",
 "al-ga",
@@ -204,3 +204,17 @@ for(let combo of combos){
 }
 
 console.log(codes)
+*/
+const stateNames = ["Alaska","Alabama","Arkansas","Arizona","California","Colorado","Connecticut","District Of Columbia","Delaware","Florida","Georgia","Guam","Hawaii","Iowa","Idaho","Illinois","Indiana","Kansas","Kentucky","Louisiana","Massachusetts","Maryland","Maine","Michigan","Minnesota","Missouri","Mississippi","Montana","North Carolina","North Dakota","Nebraska","New Hampshire","New Jersey","New Mexico","Nevada","New York","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Virginia","Vermont","Washington","Wisconsin","West Virginia","Wyoming"]
+for(let name of stateNames){
+  let link = name.slice()
+  link = `${getBetterFileName(link)}.html`
+  console.log(`<a class="dropdown-item" href="${link}">${name}</a>`)
+}
+function getBetterFileName(stateName){
+  let betterFileName = stateName.split(" ").join("_");
+  betterFileName = betterFileName.split(".").join("");
+  betterFileName = betterFileName.split("(").join("");
+  betterFileName = betterFileName.split(")").join("");
+  return betterFileName;
+}

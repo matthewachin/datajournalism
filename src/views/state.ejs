@@ -13,10 +13,9 @@
   </header>
 
   <section id="state-stats">
-  <h2>Insert <%= name %>'s image</h2>
-  <h2>Stats</h2>
-  <img src="placeholder.png" class="diagram">
-
+  <h2>Stats:</h2>
+  <h6>Population: <%= data['2020 ']['population']%></h6>
+  <h2>Deaths per Year (1999-2020)</h2>
 <div id="Neoplasms" style="width:600px;height:250px;"></div>
 
 
@@ -53,13 +52,29 @@ for(year in data){
 }
 //console.log(xData)
 //console.log(yData)
+
+  const layout2 = {
+    margin: { t: 0 },
+    title: {
+      text: 'Deaths per Year (1999-2020)',
+    },
+    xaxis:{
+      title:{
+        text: 'Year'
+      }
+    },
+    yaxis:{
+      title:{
+        text: 'Number of deaths'
+      }
+    },
+  };
 	NEOPLASMS = document.getElementById('Neoplasms');
 	Plotly.newPlot( NEOPLASMS, [{
 	x: xData,
-	y: yData }], {
-	margin: { t: 0 } } );
+	y: yData }], layout2 );
 </script>
-
+<h2>Causes of Death each Year (1999-2020)</h2>
 <div id="Deaths" style="width:width;height:800px;"></div>
 
 <script>
@@ -104,7 +119,22 @@ for(cause of causes){
 }
 
 
-var layout = {barmode: 'stack'};
+var layout = {
+  barmode: 'stack',
+  title: {
+    text: 'Deaths every year from 1999-2020 for each cause of death',
+  },
+  xaxis:{
+    title:{
+      text: 'Year'
+    }
+  },
+  yaxis:{
+    title:{
+      text: 'Number of deaths'
+    }
+  },
+};
 
 
 Plotly.newPlot('Deaths', stackedData, layout);
@@ -121,13 +151,6 @@ Plotly.newPlot('Deaths', stackedData, layout);
   </tr>
 <% } %>
 -->
-<p>
-  chart should be above this text
-</p>
-  <div id="chart"></div>
-
-  <h1>This data will be shown through the graph but here's the data</h1>
-
   <!--
   <table>
     <tr>
@@ -151,11 +174,6 @@ Plotly.newPlot('Deaths', stackedData, layout);
 
   </table>
 -->
-
-  <h2>Leading Causes of Death 1999-2020</h2>
-  <img src="placeholder.png" class="diagram">
-  <h2>Deaths/yr 1999-2020</h2>
-  <img src="placeholder.png" class="diagram">
   </section>
 
   <%- include ('global/footer');  %>
