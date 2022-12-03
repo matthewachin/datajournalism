@@ -48,13 +48,34 @@
 
 
 <script>
+let causes = [
+"Certain infectious and parasitic diseases",
+"Neoplasms",
+"Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism",
+"Endocrine, nutritional and metabolic diseases",
+"Mental and behavioural disorders",
+"Diseases of the nervous system",
+"Diseases of the circulatory system",
+"Diseases of the respiratory system",
+"Diseases of the digestive system",
+"Diseases of the skin and subcutaneous tissue",
+"Diseases of the musculoskeletal system and connective tissue",
+"Diseases of the genitourinary system",
+"Certain conditions originating in the perinatal period",
+"Congenital malformations, deformations and chromosomal abnormalities",
+"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",
+"External causes of morbidity and mortality"
+]
 let data = JSON.parse(document.getElementById("state_data").innerHTML)
 console.log(data)
 let xData = []
 let yData = []
 for(year in data){
   xData.push(year)
-  yData.push(data[year]['Neoplasms']['deaths'])
+  for(cause in causes){
+    yData[year - 1999] = (data[year]['total_deaths'])
+  }
+
 }
 //console.log(xData)
 //console.log(yData)
@@ -69,14 +90,7 @@ for(year in data){
 
 <script>
 var stackedData = [];
-let causes = []
-for(cause in data['2001']){
-  //console.log(cause)
-  if(cause == "total_deaths" || cause == "population"){
 
-  }else{causes.push(cause);}
-  console.log(causes)
-}
 //console.log(causes)
 //add object of each COD's data to array
 
@@ -122,6 +136,7 @@ var layout = {barmode: 'stack'};
 Plotly.newPlot('Deaths', stackedData, layout);
 </script>
 
+<!--
 
   <tr>
     <th>1999</th>
@@ -1051,12 +1066,15 @@ Plotly.newPlot('Deaths', stackedData, layout);
     
   </tr>
 
+-->
 <p>
   chart should be above this text
 </p>
   <div id="chart"></div>
 
   <h1>This data will be shown through the graph but here's the data</h1>
+
+  <!--
   <table>
     <tr>
       <th>Causes</th>
@@ -2066,6 +2084,7 @@ Plotly.newPlot('Deaths', stackedData, layout);
       
 
   </table>
+-->
 
   <h2>Leading Causes of Death 1999-2020</h2>
   <img src="placeholder.png" class="diagram">

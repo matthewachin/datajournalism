@@ -67,7 +67,9 @@ for(state_name in final_data){
       if(cause !== 'population'){
         if(final_data[state_name][year][cause] == null){
           final_data[state_name][year][cause] = {}
+          //console.log(final_data[state_name][year][cause])
           final_data[state_name][year][cause]['deaths'] = 0
+          console.log(final_data[state_name][year][cause]['deaths'])
           final_data[state_name][year][cause]['crude-rate'] = 0
         }else if(final_data[state_name][year][cause]['deaths'] == null || final_data[state_name][year][cause]['crude-rate'] == null){
           final_data[state_name][year][cause]['deaths'] = 0
