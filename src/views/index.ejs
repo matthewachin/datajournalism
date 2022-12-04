@@ -3,6 +3,7 @@
 <%- include ('global/header.ejs'); %>
 
 <body>
+  <p id='state_data' class="hidden"><%= JSON.stringify(data)%></p>
   <%- include ('global/navbar.ejs'); %>
   <h1>Causes of Death in the United States</h1>
   <h4>Population of US: 331.9 Million</h3>
@@ -10,12 +11,12 @@
   <div>
   <?xml version="1.0" encoding="UTF-8" standalone="no"?>
   <svg xmlns="http://www.w3.org/2000/svg" width="959" height="593">
-    <title>Blank map of the United States, territories not included</title>
+    <title>Map of the United States</title>
   <defs>
   <style type="text/css">
-  .state {fill:#D0D0D0}                        /* default color for all states not specified below */
+  .state {fill:#b1b1b1}                        /* default color for all states not specified below */
   .borders {stroke:#FFFFFF; stroke-width:1}    /* color and width of borders between states */
-  .highlight-border{stroke: #000000}
+  .highlight-border{stroke: #615e5e; stroke-width:5}
   .highlight-state{fill: #000000}
   .dccircle {display:yes}                      /* set display to yes to show the circle for the District of Columbia, or none to hide it */
   .separator1 {stroke:#B0B0B0; stroke-width:2} /* color and width of lines around Alaska and Hawaii */
@@ -314,18 +315,12 @@
   </div>
 </div>
   <script src="usa_map.js"></script>
-
-  <br>
-  <% for(state in data){ %>
-    <a href="<%= data[state].link %>.html"><%= state %></a>
-    <br>
-  <% } %>
-
+  
   <h2>Causes of Death in the United States 1999-2020</h2>
-  <img src="placeholder.png" class="diagram">
+  <div id="chart_1" style="width:1000px;height:600px;"></div>
   <h2>Total Deaths from 1999-2020</h2>
-  <img src="placeholder.png" class="diagram">
-
+  <div id="chart_2" style="width:1000px;height:600px;"></div>
+  <script src='index_charts.js'></script>
   <%- include ('global/footer');  %>
   <%- include ('global/scripts.ejs'); %>
   <p id="death_data" class="hidden"><%= JSON.stringify(ddata) %></p>

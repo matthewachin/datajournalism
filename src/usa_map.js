@@ -107,6 +107,7 @@ for (abbreviation in stateNames) {
       wv: "West_Virginia",
       wy: "Wyoming",
     };
+    
     window.location.href = `${stateNames[event.target.classList[0]]}.html`;
   });
   stateImage.addEventListener("mouseover", function (e) {
@@ -164,6 +165,8 @@ for (abbreviation in stateNames) {
       wy: "Wyoming",
     };
     const combos = {
+      ak: [],
+      hi: [],
       al: ["al-fl", "al-ga", "al-ms", "al-tn"],
       fl: ["al-fl", "fl-ga"],
       ga: ["al-ga", "fl-ga", "ga-nc", "ga-sc", "ga-tn"],
@@ -223,14 +226,16 @@ for (abbreviation in stateNames) {
     }
 
     e.target.classList.add('highlight-state')
-    document.getElementById('hover-name').innerHTML = stateNames[stateCode]
-    const death_data = JSON.parse(document.getElementById('death_data').innerHTML)[stateNames[stateCode]]
+    document.getElementById('hover-name').innerHTML = clean_name(stateNames[stateCode])
+    const death_data = JSON.parse(document.getElementById('death_data').innerHTML)[clean_name(stateNames[stateCode])]
     document.getElementById('hover-population').innerHTML = death_data['population']
     document.getElementById('hover-total').innerHTML = death_data['total_deaths']
 
   });
   stateImage.addEventListener('mouseout', function(e){
     const combos = {
+      ak: [],
+      hi: [],
       al: ["al-fl", "al-ga", "al-ms", "al-tn"],
       fl: ["al-fl", "fl-ga"],
       ga: ["al-ga", "fl-ga", "ga-nc", "ga-sc", "ga-tn"],
@@ -290,3 +295,4 @@ for (abbreviation in stateNames) {
     e.target.classList.remove('highlight-state')
   })
 }
+const clean_name = (name) => name.split('_').join(' ')
