@@ -315,11 +315,14 @@
   </div>
 </div>
   <script src="usa_map.js"></script>
-  
+
   <h2>Causes of Death in the United States 1999-2020</h2>
   <div id="chart_1" style="width:1000px;height:600px;"></div>
   <h2>Total Deaths from 1999-2020</h2>
   <div id="chart_2" style="width:1000px;height:600px;"></div>
+  <p>
+    In this data, we understandably see fluctuation year to year in the number of deaths. Accounting for this is reporting error and small variations in the deaths as a result of a number of diseases. However, we see roughtly exponential increases in year to year deaths. Accounting for this is likely population growth, which is a function of the number of births and, by proxy, the previous year's population. In each of our states, there is a clear outlier in 2020, the last year of our data. Accounting for this is likely the COVID-19 Pandemic, which has accounted for over 1 million deaths in the United States as of December of 2022.
+  </p>
   <script src='index_charts.js'></script>
   <%- include ('global/footer');  %>
   <%- include ('global/scripts.ejs'); %>

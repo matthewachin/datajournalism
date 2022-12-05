@@ -33,7 +33,7 @@ for(year in data){
   const layout2 = {
     margin: { t: 0 },
     title: {
-      text: 'Deaths per Year (1999-2020)',
+      text: 'Total Deaths Per Year (1999-2020)',
     },
     xaxis:{
       title:{
@@ -95,7 +95,7 @@ for(cause of causes){
 var layout = {
   barmode: 'stack',
   title: {
-    text: 'Deaths every year from 1999-2020 for each cause of death',
+    text: 'Deaths every year from 1999-2020 for the top 16 causes of death by cause',
   },
   xaxis:{
     title:{
