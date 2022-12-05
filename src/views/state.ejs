@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
-<p id='state_data' class="hidden"><%= JSON.stringify(data)%></p>
 <%- include ('global/header.ejs'); %>
 
 <body>
+  <p id='state_data' class="hidden"><%= JSON.stringify(data)%></p>
   <%- include ('global/navbar.ejs'); %>
   <header>
     <h1 id="state_title">Deaths in <%=name%></h1>

@@ -3,6 +3,7 @@
 <%- include ('global/header.ejs'); %>
 
 <body>
+  <p id="death_data" class="hidden"><%= JSON.stringify(ddata) %></p>
   <p id='state_data' class="hidden"><%= JSON.stringify(data)%></p>
   <%- include ('global/navbar.ejs'); %>
   <h1>Causes of Death in the United States</h1>
@@ -326,7 +327,6 @@
   <script src='index_charts.js'></script>
   <%- include ('global/footer');  %>
   <%- include ('global/scripts.ejs'); %>
-  <p id="death_data" class="hidden"><%= JSON.stringify(ddata) %></p>
 </body>
 
 </html>
