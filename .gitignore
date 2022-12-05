@@ -1,7 +1,5 @@
 # Dependency directories
-node_modules/
 public/
-
 # Specific files
 .DS_Store
 package-lock.JSON
