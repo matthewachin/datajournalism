@@ -24,10 +24,15 @@ for(state in data){
 
 let x_data = []
 let y_data = []
+let labels = []
+let count = 1
 for(cause in chart_data){
-  x_data.push(cause)
+  x_data.push(`Cause ${String(count)}`)
+  labels.push([count, cause])
+  count++
   y_data.push(chart_data[cause])
 }
+
 let graph_data = [
   {
     x: x_data,
@@ -53,6 +58,12 @@ var layout = {
 };
 
 Plotly.newPlot('chart_1', graph_data, layout);
+let chart_label = document.getElementById('chart_key')
+for(label of labels){
+  let li = document.createElement('li');
+  li.innerHTML =`${label[0]}: ${label[1]}`
+  chart_label.appendChild(li)
+}
 
 let x_data2 = []
 let y_data2 = []

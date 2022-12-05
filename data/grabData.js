@@ -204,7 +204,7 @@ for(let combo of combos){
 }
 
 console.log(codes)
-*/
+
 const stateNames = ["Alaska","Alabama","Arkansas","Arizona","California","Colorado","Connecticut","District Of Columbia","Delaware","Florida","Georgia","Guam","Hawaii","Iowa","Idaho","Illinois","Indiana","Kansas","Kentucky","Louisiana","Massachusetts","Maryland","Maine","Michigan","Minnesota","Missouri","Mississippi","Montana","North Carolina","North Dakota","Nebraska","New Hampshire","New Jersey","New Mexico","Nevada","New York","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Virginia","Vermont","Washington","Wisconsin","West Virginia","Wyoming"]
 for(let name of stateNames){
   let link = name.slice()
@@ -218,3 +218,44 @@ function getBetterFileName(stateName){
   betterFileName = betterFileName.split(")").join("");
   return betterFileName;
 }
+
+
+const fs = require('fs')
+let data = JSON.parse(fs.readFileSync('data.json', 'utf8'))
+let total_data = {}
+for(state in data){
+  for(year in data[state]){
+    if(year in total_data){
+      total_data[year] = Number(data[state][year]['total_deaths']) + total_data[year]
+
+    }else{
+      total_data[year] = Number(data[state][year]['total_deaths'])
+    }
+  }
+}
+console.log(total_data)
+
+const fs = require('fs')
+let data = JSON.parse(fs.readFileSync('data.json', 'utf8'))
+let total_data = {}
+for(state in data){
+  for(year in data[state]){
+    for(cause in data[state][year]){
+      if(cause in total_data){
+        total_data[cause] = Number(data[state][year][cause]['deaths']) + total_data[cause]
+  
+      }else{
+        total_data[cause] = Number(data[state][year][cause]['deaths'])
+      }
+    }
+  }
+}
+console.log(total_data)
+*/
+const fs = require('fs')
+let data = JSON.parse(fs.readFileSync('data.json', 'utf8'))
+let x = []
+for(state in data){
+  x.push(state)
+}
+console.log(x)

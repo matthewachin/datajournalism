@@ -105,10 +105,20 @@
 <div id="Neoplasms" style="width:600px;height:250px;"></div>
 <h2>Causes of Death each Year (1999-2020)</h2>
 <div id="Deaths" style="width:width;height:800px;"></div>
+
 <script src="state_charts.js"></script>
 <p>
   Like with our national data, we see a clear uptick in deaths in 2020, caused by the COVID Pandemic. With our state data, year to year fluctuations in deaths are much more pronounced. At a national level, the upticks and downticks in various causes of death mean the totals even out over 50 states and Washington D.C.. Given that different states categoize deaths in slighly different ways, COVID deaths fall under multiple categories in different states. Further, because there is a lot of migration within the United States, some states will experience year to year populaiton declines while others will see increases. This is why many states do not see the increases in deaths year to year for a number of states that we see at the national level. 
 </p>
+<h1>Comparison to National Data</h1>
+<h2>Percentage of Population</h2>
+<div id="pie_chart_my"></div>
+<h2>Percentage of Deaths Each Year</h2>
+<div id="line_chart_my"></div>
+<script src="compare_charts.js"></script>
+<a class="next_state" id="next_state">Next State</a>
+<a class="back_state" id="back_state">Previous State</a>
+<script src="next_back.js"></script>
 <!--
 
   <tr>
@@ -2072,7 +2082,7 @@
   </table>
 -->
   </section>
-
+  
   <footer>
 ----------
 <p>The data is sourced directly from the CDC. The dataset that was used is available <a href="https://wonder.cdc.gov/controller/datarequest/D76;jsessionid=DA1E35917E014A688BE7F7D3B2BE ">here</a>.</p>
