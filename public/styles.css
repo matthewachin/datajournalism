@@ -1,0 +1,107 @@
+#menu-button-div{
+  display: flex;
+  justify-content: right;
+  align-items:right;
+  text-align: right;
+}
+#open-menu{
+  background-color: white;
+  color: rgba(0,0,0,0);
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  border: none;
+  background-color: rgba(0,0,0,0);
+}
+.hidden{
+  visibility: hidden;
+  position: absolute;
+}
+#menu{
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+#menu a{
+  margin: 5px;
+  color: white;
+  font-size: 3rem;
+}
+#menu a:hover{
+  color: lightblue;
+}
+#close-menu{
+  position: absolute
+}
+#main-content{
+  background-color: black;
+}
+#menu-icon{
+  position:absolute;
+  width: 2.5rem;
+}
+#highlight-menu-icon{
+  position:absolute;
+  width: 2.5rem;
+}
+.diagram-header{
+  font-size: 2rem;
+  color: black;
+}
+h1,h2,h3,h4,h5,h6{
+  color: black;
+}
+.underline{
+  text-decoration: underline;
+}
+.diagram-container{
+  display: flex;
+  flex-direction: row;
+}
+.diagram{
+  width: 25%;
+}
+.nav-button{
+
+  background-color: gray;
+  padding: 1rem 3rem;
+  margin: 0;
+  text-decoration: none;
+  color: black;
+}
+.nav-button:hover{
+  background-color: darkgray;
+}
+#nav-bar-container{
+  display: flex;
+  background-color: gray;
+}
+#nav-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:0;
+  padding: 0 2rem;
+}
+table, th, td {
+  border: 1px solid;
+  color: black
+}
+#hover-text{
+  display:flex;
+  flex-direction:column;
+}
+#map_and_hoverbox{
+  display:flex;
+  flex-direction:row;
+}
+.nav-drop{
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
