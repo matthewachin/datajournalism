@@ -1,0 +1,2098 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Causes of Death in US</title>
+  <meta name="author" content="Matthew Chin & Ben Levy">
+  <meta name="description" content="Matthew Chin and Ben Levy's Data Journalism Project">
+  <meta content="text/html" http-equiv="Content-type" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+</head>
+
+<body>
+  <p id='state_data' class="hidden">{&#34;1999&#34;:{&#34;population&#34;:&#34;6317345&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1471&#34;,&#34;crude-rate&#34;:&#34;23.28510&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;14252&#34;,&#34;crude-rate&#34;:&#34;225.60110&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;217&#34;,&#34;crude-rate&#34;:&#34;3.43499&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;1970&#34;,&#34;crude-rate&#34;:&#34;31.18399&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;1436&#34;,&#34;crude-rate&#34;:&#34;22.73107&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;2263&#34;,&#34;crude-rate&#34;:&#34;35.82201&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;20857&#34;,&#34;crude-rate&#34;:&#34;330.15452&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;6199&#34;,&#34;crude-rate&#34;:&#34;98.12667&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2136&#34;,&#34;crude-rate&#34;:&#34;33.81167&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;76&#34;,&#34;crude-rate&#34;:&#34;1.20304&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;286&#34;,&#34;crude-rate&#34;:&#34;4.52722&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1549&#34;,&#34;crude-rate&#34;:&#34;24.51979&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;271&#34;,&#34;crude-rate&#34;:&#34;4.28978&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;155&#34;,&#34;crude-rate&#34;:&#34;2.45356&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;370&#34;,&#34;crude-rate&#34;:&#34;5.85689&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;2329&#34;,&#34;crude-rate&#34;:&#34;36.86675&#34;},&#34;total_deaths&#34;:55837},&#34;2000&#34;:{&#34;population&#34;:&#34;6349097&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1406&#34;,&#34;crude-rate&#34;:&#34;22.14488&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;14410&#34;,&#34;crude-rate&#34;:&#34;226.96141&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;220&#34;,&#34;crude-rate&#34;:&#34;3.46506&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;2011&#34;,&#34;crude-rate&#34;:&#34;31.67380&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;1575&#34;,&#34;crude-rate&#34;:&#34;24.80668&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;2538&#34;,&#34;crude-rate&#34;:&#34;39.97419&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;20417&#34;,&#34;crude-rate&#34;:&#34;321.57329&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;6654&#34;,&#34;crude-rate&#34;:&#34;104.80230&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2153&#34;,&#34;crude-rate&#34;:&#34;33.91033&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;93&#34;,&#34;crude-rate&#34;:&#34;1.46478&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;267&#34;,&#34;crude-rate&#34;:&#34;4.20532&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1630&#34;,&#34;crude-rate&#34;:&#34;25.67294&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;231&#34;,&#34;crude-rate&#34;:&#34;3.63831&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;132&#34;,&#34;crude-rate&#34;:&#34;2.07904&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;646&#34;,&#34;crude-rate&#34;:&#34;10.17468&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;2296&#34;,&#34;crude-rate&#34;:&#34;36.16262&#34;},&#34;total_deaths&#34;:56679},&#34;2001&#34;:{&#34;population&#34;:&#34;6397634&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1488&#34;,&#34;crude-rate&#34;:&#34;23.25860&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;14125&#34;,&#34;crude-rate&#34;:&#34;220.78475&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;207&#34;,&#34;crude-rate&#34;:&#34;3.23557&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;2053&#34;,&#34;crude-rate&#34;:&#34;32.08999&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;1848&#34;,&#34;crude-rate&#34;:&#34;28.88568&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;2745&#34;,&#34;crude-rate&#34;:&#34;42.90649&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;20207&#34;,&#34;crude-rate&#34;:&#34;315.85114&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;6134&#34;,&#34;crude-rate&#34;:&#34;95.87920&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2227&#34;,&#34;crude-rate&#34;:&#34;34.80974&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;82&#34;,&#34;crude-rate&#34;:&#34;1.28172&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;334&#34;,&#34;crude-rate&#34;:&#34;5.22068&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1624&#34;,&#34;crude-rate&#34;:&#34;25.38438&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;260&#34;,&#34;crude-rate&#34;:&#34;4.06400&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;157&#34;,&#34;crude-rate&#34;:&#34;2.45403&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;420&#34;,&#34;crude-rate&#34;:&#34;6.56493&#34;},&#34;Codes for special purposes&#34;:{&#34;deaths&#34;:&#34;91&#34;,&#34;crude-rate&#34;:&#34;1.42240&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;2745&#34;,&#34;crude-rate&#34;:&#34;42.90649&#34;},&#34;total_deaths&#34;:56747},&#34;2002&#34;:{&#34;population&#34;:&#34;6417206&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1534&#34;,&#34;crude-rate&#34;:&#34;23.90448&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;14257&#34;,&#34;crude-rate&#34;:&#34;222.16834&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;249&#34;,&#34;crude-rate&#34;:&#34;3.88019&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;2004&#34;,&#34;crude-rate&#34;:&#34;31.22854&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;1975&#34;,&#34;crude-rate&#34;:&#34;30.77663&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;2793&#34;,&#34;crude-rate&#34;:&#34;43.52361&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;19751&#34;,&#34;crude-rate&#34;:&#34;307.78192&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;6296&#34;,&#34;crude-rate&#34;:&#34;98.11123&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2222&#34;,&#34;crude-rate&#34;:&#34;34.62566&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;67&#34;,&#34;crude-rate&#34;:&#34;1.04407&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;315&#34;,&#34;crude-rate&#34;:&#34;4.90868&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1734&#34;,&#34;crude-rate&#34;:&#34;27.02111&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;249&#34;,&#34;crude-rate&#34;:&#34;3.88019&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;167&#34;,&#34;crude-rate&#34;:&#34;2.60238&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;627&#34;,&#34;crude-rate&#34;:&#34;9.77061&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;2685&#34;,&#34;crude-rate&#34;:&#34;41.84064&#34;},&#34;total_deaths&#34;:56925},&#34;2003&#34;:{&#34;population&#34;:&#34;6422565&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1552&#34;,&#34;crude-rate&#34;:&#34;24.16480&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;13895&#34;,&#34;crude-rate&#34;:&#34;216.34658&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;219&#34;,&#34;crude-rate&#34;:&#34;3.40985&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;2040&#34;,&#34;crude-rate&#34;:&#34;31.76301&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;2069&#34;,&#34;crude-rate&#34;:&#34;32.21454&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;2713&#34;,&#34;crude-rate&#34;:&#34;42.24169&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;19407&#34;,&#34;crude-rate&#34;:&#34;302.16899&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;6186&#34;,&#34;crude-rate&#34;:&#34;96.31666&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2269&#34;,&#34;crude-rate&#34;:&#34;35.32856&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;82&#34;,&#34;crude-rate&#34;:&#34;1.27675&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;308&#34;,&#34;crude-rate&#34;:&#34;4.79559&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1681&#34;,&#34;crude-rate&#34;:&#34;26.17334&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;242&#34;,&#34;crude-rate&#34;:&#34;3.76796&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;170&#34;,&#34;crude-rate&#34;:&#34;2.64692&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;685&#34;,&#34;crude-rate&#34;:&#34;10.66552&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;2769&#34;,&#34;crude-rate&#34;:&#34;43.11362&#34;},&#34;total_deaths&#34;:56287},&#34;2004&#34;:{&#34;population&#34;:&#34;6412281&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1543&#34;,&#34;crude-rate&#34;:&#34;24.06320&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;13683&#34;,&#34;crude-rate&#34;:&#34;213.38740&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;230&#34;,&#34;crude-rate&#34;:&#34;3.58687&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;1892&#34;,&#34;crude-rate&#34;:&#34;29.50588&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;2005&#34;,&#34;crude-rate&#34;:&#34;31.26812&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;2832&#34;,&#34;crude-rate&#34;:&#34;44.16525&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;18423&#34;,&#34;crude-rate&#34;:&#34;287.30806&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;6008&#34;,&#34;crude-rate&#34;:&#34;93.69521&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2111&#34;,&#34;crude-rate&#34;:&#34;32.92120&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;83&#34;,&#34;crude-rate&#34;:&#34;1.29439&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;283&#34;,&#34;crude-rate&#34;:&#34;4.41341&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1685&#34;,&#34;crude-rate&#34;:&#34;26.27770&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;237&#34;,&#34;crude-rate&#34;:&#34;3.69603&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;141&#34;,&#34;crude-rate&#34;:&#34;2.19891&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;750&#34;,&#34;crude-rate&#34;:&#34;11.69631&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;2598&#34;,&#34;crude-rate&#34;:&#34;40.51600&#34;},&#34;total_deaths&#34;:54504},&#34;2005&#34;:{&#34;population&#34;:&#34;6403290&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1598&#34;,&#34;crude-rate&#34;:&#34;24.95592&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;13527&#34;,&#34;crude-rate&#34;:&#34;211.25078&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;203&#34;,&#34;crude-rate&#34;:&#34;3.17025&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;1807&#34;,&#34;crude-rate&#34;:&#34;28.21987&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;2257&#34;,&#34;crude-rate&#34;:&#34;35.24751&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;2803&#34;,&#34;crude-rate&#34;:&#34;43.77437&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;17518&#34;,&#34;crude-rate&#34;:&#34;273.57811&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;5962&#34;,&#34;crude-rate&#34;:&#34;93.10839&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2122&#34;,&#34;crude-rate&#34;:&#34;33.13921&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;84&#34;,&#34;crude-rate&#34;:&#34;1.31183&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;257&#34;,&#34;crude-rate&#34;:&#34;4.01356&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1910&#34;,&#34;crude-rate&#34;:&#34;29.82842&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;232&#34;,&#34;crude-rate&#34;:&#34;3.62314&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;167&#34;,&#34;crude-rate&#34;:&#34;2.60803&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;722&#34;,&#34;crude-rate&#34;:&#34;11.27545&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;2697&#34;,&#34;crude-rate&#34;:&#34;42.11897&#34;},&#34;total_deaths&#34;:53866},&#34;2006&#34;:{&#34;population&#34;:&#34;6410084&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1556&#34;,&#34;crude-rate&#34;:&#34;24.27425&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;13796&#34;,&#34;crude-rate&#34;:&#34;215.22339&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;176&#34;,&#34;crude-rate&#34;:&#34;2.74567&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;1595&#34;,&#34;crude-rate&#34;:&#34;24.88267&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;2705&#34;,&#34;crude-rate&#34;:&#34;42.19913&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;2732&#34;,&#34;crude-rate&#34;:&#34;42.62035&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;17087&#34;,&#34;crude-rate&#34;:&#34;266.56437&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;5605&#34;,&#34;crude-rate&#34;:&#34;87.44035&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2028&#34;,&#34;crude-rate&#34;:&#34;31.63765&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;66&#34;,&#34;crude-rate&#34;:&#34;1.02963&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;279&#34;,&#34;crude-rate&#34;:&#34;4.35252&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1825&#34;,&#34;crude-rate&#34;:&#34;28.47077&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;237&#34;,&#34;crude-rate&#34;:&#34;3.69730&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;127&#34;,&#34;crude-rate&#34;:&#34;1.98125&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;657&#34;,&#34;crude-rate&#34;:&#34;10.24948&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;2970&#34;,&#34;crude-rate&#34;:&#34;46.33325&#34;},&#34;total_deaths&#34;:53441},&#34;2007&#34;:{&#34;population&#34;:&#34;6431559&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1496&#34;,&#34;crude-rate&#34;:&#34;23.26030&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;13359&#34;,&#34;crude-rate&#34;:&#34;207.71014&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;214&#34;,&#34;crude-rate&#34;:&#34;3.32734&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;1728&#34;,&#34;crude-rate&#34;:&#34;26.86751&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;2898&#34;,&#34;crude-rate&#34;:&#34;45.05906&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;2918&#34;,&#34;crude-rate&#34;:&#34;45.37003&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;16822&#34;,&#34;crude-rate&#34;:&#34;261.55400&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;5139&#34;,&#34;crude-rate&#34;:&#34;79.90287&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2172&#34;,&#34;crude-rate&#34;:&#34;33.77097&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;78&#34;,&#34;crude-rate&#34;:&#34;1.21277&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;259&#34;,&#34;crude-rate&#34;:&#34;4.02702&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1809&#34;,&#34;crude-rate&#34;:&#34;28.12693&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;218&#34;,&#34;crude-rate&#34;:&#34;3.38954&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;141&#34;,&#34;crude-rate&#34;:&#34;2.19231&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;645&#34;,&#34;crude-rate&#34;:&#34;10.02867&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;3015&#34;,&#34;crude-rate&#34;:&#34;46.87821&#34;},&#34;total_deaths&#34;:52911},&#34;2008&#34;:{&#34;population&#34;:&#34;6468967&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1476&#34;,&#34;crude-rate&#34;:&#34;22.81663&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;13372&#34;,&#34;crude-rate&#34;:&#34;206.70997&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;214&#34;,&#34;crude-rate&#34;:&#34;3.30810&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;1631&#34;,&#34;crude-rate&#34;:&#34;25.21268&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;3441&#34;,&#34;crude-rate&#34;:&#34;53.19242&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;3023&#34;,&#34;crude-rate&#34;:&#34;46.73080&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;16735&#34;,&#34;crude-rate&#34;:&#34;258.69664&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;5484&#34;,&#34;crude-rate&#34;:&#34;84.77397&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2128&#34;,&#34;crude-rate&#34;:&#34;32.89551&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;71&#34;,&#34;crude-rate&#34;:&#34;1.09755&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;248&#34;,&#34;crude-rate&#34;:&#34;3.83369&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1735&#34;,&#34;crude-rate&#34;:&#34;26.82036&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;241&#34;,&#34;crude-rate&#34;:&#34;3.72548&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;150&#34;,&#34;crude-rate&#34;:&#34;2.31876&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;728&#34;,&#34;crude-rate&#34;:&#34;11.25373&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;2837&#34;,&#34;crude-rate&#34;:&#34;43.85553&#34;},&#34;total_deaths&#34;:53514},&#34;2009&#34;:{&#34;population&#34;:&#34;6517613&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1496&#34;,&#34;crude-rate&#34;:&#34;22.95319&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;13458&#34;,&#34;crude-rate&#34;:&#34;206.48664&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;190&#34;,&#34;crude-rate&#34;:&#34;2.91518&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;1551&#34;,&#34;crude-rate&#34;:&#34;23.79706&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;3598&#34;,&#34;crude-rate&#34;:&#34;55.20426&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;2924&#34;,&#34;crude-rate&#34;:&#34;44.86305&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;16053&#34;,&#34;crude-rate&#34;:&#34;246.30183&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;5149&#34;,&#34;crude-rate&#34;:&#34;79.00132&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2000&#34;,&#34;crude-rate&#34;:&#34;30.68608&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;71&#34;,&#34;crude-rate&#34;:&#34;1.08936&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;222&#34;,&#34;crude-rate&#34;:&#34;3.40615&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1610&#34;,&#34;crude-rate&#34;:&#34;24.70230&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;231&#34;,&#34;crude-rate&#34;:&#34;3.54424&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;151&#34;,&#34;crude-rate&#34;:&#34;2.31680&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;663&#34;,&#34;crude-rate&#34;:&#34;10.17244&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;2936&#34;,&#34;crude-rate&#34;:&#34;45.04717&#34;},&#34;total_deaths&#34;:52303},&#34;2010&#34;:{&#34;population&#34;:&#34;6547629&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1551&#34;,&#34;crude-rate&#34;:&#34;23.68796&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;13315&#34;,&#34;crude-rate&#34;:&#34;203.35605&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;244&#34;,&#34;crude-rate&#34;:&#34;3.72654&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;1592&#34;,&#34;crude-rate&#34;:&#34;24.31414&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;4079&#34;,&#34;crude-rate&#34;:&#34;62.29736&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;2977&#34;,&#34;crude-rate&#34;:&#34;45.46684&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;15692&#34;,&#34;crude-rate&#34;:&#34;239.65927&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;4913&#34;,&#34;crude-rate&#34;:&#34;75.03480&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2002&#34;,&#34;crude-rate&#34;:&#34;30.57595&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;77&#34;,&#34;crude-rate&#34;:&#34;1.17600&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;268&#34;,&#34;crude-rate&#34;:&#34;4.09308&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1725&#34;,&#34;crude-rate&#34;:&#34;26.34541&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;199&#34;,&#34;crude-rate&#34;:&#34;3.03927&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;147&#34;,&#34;crude-rate&#34;:&#34;2.24509&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;713&#34;,&#34;crude-rate&#34;:&#34;10.88944&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;3082&#34;,&#34;crude-rate&#34;:&#34;47.07047&#34;},&#34;total_deaths&#34;:52576},&#34;2011&#34;:{&#34;population&#34;:&#34;6587536&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1495&#34;,&#34;crude-rate&#34;:&#34;22.69437&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;13258&#34;,&#34;crude-rate&#34;:&#34;201.25886&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;223&#34;,&#34;crude-rate&#34;:&#34;3.38518&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;1758&#34;,&#34;crude-rate&#34;:&#34;26.68676&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;4662&#34;,&#34;crude-rate&#34;:&#34;70.77001&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;3082&#34;,&#34;crude-rate&#34;:&#34;46.78532&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;15462&#34;,&#34;crude-rate&#34;:&#34;234.71598&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;5416&#34;,&#34;crude-rate&#34;:&#34;82.21587&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;1969&#34;,&#34;crude-rate&#34;:&#34;29.88978&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;85&#34;,&#34;crude-rate&#34;:&#34;1.29032&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;252&#34;,&#34;crude-rate&#34;:&#34;3.82541&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1658&#34;,&#34;crude-rate&#34;:&#34;25.16874&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;181&#34;,&#34;crude-rate&#34;:&#34;2.74761&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;155&#34;,&#34;crude-rate&#34;:&#34;2.35293&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;885&#34;,&#34;crude-rate&#34;:&#34;13.43446&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;3161&#34;,&#34;crude-rate&#34;:&#34;47.98456&#34;},&#34;total_deaths&#34;:53702},&#34;2012&#34;:{&#34;population&#34;:&#34;6646144&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1451&#34;,&#34;crude-rate&#34;:&#34;21.83221&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;13231&#34;,&#34;crude-rate&#34;:&#34;199.07784&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;223&#34;,&#34;crude-rate&#34;:&#34;3.35533&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;1681&#34;,&#34;crude-rate&#34;:&#34;25.29286&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;4843&#34;,&#34;crude-rate&#34;:&#34;72.86932&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;3010&#34;,&#34;crude-rate&#34;:&#34;45.28942&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;15204&#34;,&#34;crude-rate&#34;:&#34;228.76423&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;5151&#34;,&#34;crude-rate&#34;:&#34;77.50359&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2002&#34;,&#34;crude-rate&#34;:&#34;30.12273&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;71&#34;,&#34;crude-rate&#34;:&#34;1.06829&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;229&#34;,&#34;crude-rate&#34;:&#34;3.44561&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1634&#34;,&#34;crude-rate&#34;:&#34;24.58568&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;172&#34;,&#34;crude-rate&#34;:&#34;2.58797&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;148&#34;,&#34;crude-rate&#34;:&#34;2.22686&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;1088&#34;,&#34;crude-rate&#34;:&#34;16.37039&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;3033&#34;,&#34;crude-rate&#34;:&#34;45.63548&#34;},&#34;total_deaths&#34;:53171},&#34;2013&#34;:{&#34;population&#34;:&#34;6692824&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1504&#34;,&#34;crude-rate&#34;:&#34;22.47183&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;13186&#34;,&#34;crude-rate&#34;:&#34;197.01698&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;185&#34;,&#34;crude-rate&#34;:&#34;2.76415&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;1748&#34;,&#34;crude-rate&#34;:&#34;26.11753&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;5100&#34;,&#34;crude-rate&#34;:&#34;76.20102&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;3111&#34;,&#34;crude-rate&#34;:&#34;46.48262&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;15560&#34;,&#34;crude-rate&#34;:&#34;232.48781&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;5347&#34;,&#34;crude-rate&#34;:&#34;79.89154&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2033&#34;,&#34;crude-rate&#34;:&#34;30.37582&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;87&#34;,&#34;crude-rate&#34;:&#34;1.29990&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;278&#34;,&#34;crude-rate&#34;:&#34;4.15370&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1678&#34;,&#34;crude-rate&#34;:&#34;25.07163&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;178&#34;,&#34;crude-rate&#34;:&#34;2.65956&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;145&#34;,&#34;crude-rate&#34;:&#34;2.16650&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;1185&#34;,&#34;crude-rate&#34;:&#34;17.70553&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;3235&#34;,&#34;crude-rate&#34;:&#34;48.33535&#34;},&#34;total_deaths&#34;:54560},&#34;2014&#34;:{&#34;population&#34;:&#34;6745408&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1453&#34;,&#34;crude-rate&#34;:&#34;21.54058&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;13204&#34;,&#34;crude-rate&#34;:&#34;195.74798&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;213&#34;,&#34;crude-rate&#34;:&#34;3.15770&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;1885&#34;,&#34;crude-rate&#34;:&#34;27.94494&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;5279&#34;,&#34;crude-rate&#34;:&#34;78.26065&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;3106&#34;,&#34;crude-rate&#34;:&#34;46.04614&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;15419&#34;,&#34;crude-rate&#34;:&#34;228.58514&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;5266&#34;,&#34;crude-rate&#34;:&#34;78.06792&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2127&#34;,&#34;crude-rate&#34;:&#34;31.53256&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;103&#34;,&#34;crude-rate&#34;:&#34;1.52696&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;258&#34;,&#34;crude-rate&#34;:&#34;3.82482&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1682&#34;,&#34;crude-rate&#34;:&#34;24.93548&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;192&#34;,&#34;crude-rate&#34;:&#34;2.84638&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;152&#34;,&#34;crude-rate&#34;:&#34;2.25338&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;1354&#34;,&#34;crude-rate&#34;:&#34;20.07291&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;3499&#34;,&#34;crude-rate&#34;:&#34;51.87233&#34;},&#34;total_deaths&#34;:55192},&#34;2015&#34;:{&#34;population&#34;:&#34;6794422&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1595&#34;,&#34;crude-rate&#34;:&#34;23.47514&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;13101&#34;,&#34;crude-rate&#34;:&#34;192.81993&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;229&#34;,&#34;crude-rate&#34;:&#34;3.37041&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;2218&#34;,&#34;crude-rate&#34;:&#34;32.64443&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;5643&#34;,&#34;crude-rate&#34;:&#34;83.05342&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;3437&#34;,&#34;crude-rate&#34;:&#34;50.58561&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;15870&#34;,&#34;crude-rate&#34;:&#34;233.57395&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;5719&#34;,&#34;crude-rate&#34;:&#34;84.17199&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2257&#34;,&#34;crude-rate&#34;:&#34;33.21843&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;92&#34;,&#34;crude-rate&#34;:&#34;1.35405&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;270&#34;,&#34;crude-rate&#34;:&#34;3.97385&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1704&#34;,&#34;crude-rate&#34;:&#34;25.07940&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;197&#34;,&#34;crude-rate&#34;:&#34;2.89944&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;149&#34;,&#34;crude-rate&#34;:&#34;2.19298&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;1196&#34;,&#34;crude-rate&#34;:&#34;17.60267&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;4120&#34;,&#34;crude-rate&#34;:&#34;60.63798&#34;},&#34;total_deaths&#34;:57797},&#34;2016&#34;:{&#34;population&#34;:&#34;6811779&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1434&#34;,&#34;crude-rate&#34;:&#34;21.05177&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;13073&#34;,&#34;crude-rate&#34;:&#34;191.91756&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;209&#34;,&#34;crude-rate&#34;:&#34;3.06821&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;2077&#34;,&#34;crude-rate&#34;:&#34;30.49130&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;5634&#34;,&#34;crude-rate&#34;:&#34;82.70967&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;3304&#34;,&#34;crude-rate&#34;:&#34;48.50422&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;15593&#34;,&#34;crude-rate&#34;:&#34;228.91230&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;5276&#34;,&#34;crude-rate&#34;:&#34;77.45407&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2349&#34;,&#34;crude-rate&#34;:&#34;34.48438&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;85&#34;,&#34;crude-rate&#34;:&#34;1.24784&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;255&#34;,&#34;crude-rate&#34;:&#34;3.74352&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1581&#34;,&#34;crude-rate&#34;:&#34;23.20980&#34;},&#34;Pregnancy, childbirth and the puerperium&#34;:{&#34;deaths&#34;:&#34;18&#34;,&#34;crude-rate&#34;:&#34;Unreliable&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;177&#34;,&#34;crude-rate&#34;:&#34;2.59844&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;159&#34;,&#34;crude-rate&#34;:&#34;2.33419&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;1009&#34;,&#34;crude-rate&#34;:&#34;14.81258&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;4725&#34;,&#34;crude-rate&#34;:&#34;69.36514&#34;},&#34;total_deaths&#34;:56958},&#34;2017&#34;:{&#34;population&#34;:&#34;6859819&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1458&#34;,&#34;crude-rate&#34;:&#34;21.25421&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;13284&#34;,&#34;crude-rate&#34;:&#34;193.64942&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;228&#34;,&#34;crude-rate&#34;:&#34;3.32370&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;2150&#34;,&#34;crude-rate&#34;:&#34;31.34193&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;6146&#34;,&#34;crude-rate&#34;:&#34;89.59420&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;3520&#34;,&#34;crude-rate&#34;:&#34;51.31331&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;15721&#34;,&#34;crude-rate&#34;:&#34;229.17514&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;5810&#34;,&#34;crude-rate&#34;:&#34;84.69611&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2296&#34;,&#34;crude-rate&#34;:&#34;33.47027&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;105&#34;,&#34;crude-rate&#34;:&#34;1.53065&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;251&#34;,&#34;crude-rate&#34;:&#34;3.65899&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1669&#34;,&#34;crude-rate&#34;:&#34;24.33009&#34;},&#34;Pregnancy, childbirth and the puerperium&#34;:{&#34;deaths&#34;:&#34;14&#34;,&#34;crude-rate&#34;:&#34;Unreliable&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;137&#34;,&#34;crude-rate&#34;:&#34;1.99714&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;162&#34;,&#34;crude-rate&#34;:&#34;2.36158&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;1061&#34;,&#34;crude-rate&#34;:&#34;15.46688&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;4788&#34;,&#34;crude-rate&#34;:&#34;69.79776&#34;},&#34;total_deaths&#34;:58800},&#34;2018&#34;:{&#34;population&#34;:&#34;6902149&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1553&#34;,&#34;crude-rate&#34;:&#34;22.50024&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;12993&#34;,&#34;crude-rate&#34;:&#34;188.24572&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;261&#34;,&#34;crude-rate&#34;:&#34;3.78143&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;2315&#34;,&#34;crude-rate&#34;:&#34;33.54028&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;6136&#34;,&#34;crude-rate&#34;:&#34;88.89985&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;3625&#34;,&#34;crude-rate&#34;:&#34;52.51987&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;15781&#34;,&#34;crude-rate&#34;:&#34;228.63894&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;5880&#34;,&#34;crude-rate&#34;:&#34;85.19086&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2345&#34;,&#34;crude-rate&#34;:&#34;33.97493&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;97&#34;,&#34;crude-rate&#34;:&#34;1.40536&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;261&#34;,&#34;crude-rate&#34;:&#34;3.78143&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1662&#34;,&#34;crude-rate&#34;:&#34;24.07946&#34;},&#34;Pregnancy, childbirth and the puerperium&#34;:{&#34;deaths&#34;:&#34;15&#34;,&#34;crude-rate&#34;:&#34;Unreliable&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;175&#34;,&#34;crude-rate&#34;:&#34;2.53544&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;176&#34;,&#34;crude-rate&#34;:&#34;2.54993&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;875&#34;,&#34;crude-rate&#34;:&#34;12.67721&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;5001&#34;,&#34;crude-rate&#34;:&#34;72.45569&#34;},&#34;total_deaths&#34;:59151},&#34;2019&#34;:{&#34;population&#34;:&#34;6892503&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1453&#34;,&#34;crude-rate&#34;:&#34;21.08088&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;12928&#34;,&#34;crude-rate&#34;:&#34;187.56611&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;200&#34;,&#34;crude-rate&#34;:&#34;2.90170&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;2367&#34;,&#34;crude-rate&#34;:&#34;34.34166&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;6190&#34;,&#34;crude-rate&#34;:&#34;89.80772&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;3688&#34;,&#34;crude-rate&#34;:&#34;53.50741&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;15529&#34;,&#34;crude-rate&#34;:&#34;225.30277&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;5665&#34;,&#34;crude-rate&#34;:&#34;82.19075&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2240&#34;,&#34;crude-rate&#34;:&#34;32.49908&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;92&#34;,&#34;crude-rate&#34;:&#34;1.33478&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;273&#34;,&#34;crude-rate&#34;:&#34;3.96083&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1773&#34;,&#34;crude-rate&#34;:&#34;25.72360&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;148&#34;,&#34;crude-rate&#34;:&#34;2.14726&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;173&#34;,&#34;crude-rate&#34;:&#34;2.50997&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;845&#34;,&#34;crude-rate&#34;:&#34;12.25970&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;5049&#34;,&#34;crude-rate&#34;:&#34;73.25350&#34;},&#34;total_deaths&#34;:58613},&#34;2020 &#34;:{&#34;population&#34;:&#34;6893574&#34;,&#34;Certain infectious and parasitic diseases&#34;:{&#34;deaths&#34;:&#34;1571&#34;,&#34;crude-rate&#34;:&#34;22.78934&#34;},&#34;Neoplasms&#34;:{&#34;deaths&#34;:&#34;12706&#34;,&#34;crude-rate&#34;:&#34;184.31658&#34;},&#34;Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism&#34;:{&#34;deaths&#34;:&#34;230&#34;,&#34;crude-rate&#34;:&#34;3.33644&#34;},&#34;Endocrine, nutritional and metabolic diseases&#34;:{&#34;deaths&#34;:&#34;2726&#34;,&#34;crude-rate&#34;:&#34;39.54407&#34;},&#34;Mental and behavioural disorders&#34;:{&#34;deaths&#34;:&#34;6277&#34;,&#34;crude-rate&#34;:&#34;91.05582&#34;},&#34;Diseases of the nervous system&#34;:{&#34;deaths&#34;:&#34;3782&#34;,&#34;crude-rate&#34;:&#34;54.86269&#34;},&#34;Diseases of the circulatory system&#34;:{&#34;deaths&#34;:&#34;15363&#34;,&#34;crude-rate&#34;:&#34;222.85972&#34;},&#34;Diseases of the respiratory system&#34;:{&#34;deaths&#34;:&#34;5425&#34;,&#34;crude-rate&#34;:&#34;78.69648&#34;},&#34;Diseases of the digestive system&#34;:{&#34;deaths&#34;:&#34;2519&#34;,&#34;crude-rate&#34;:&#34;36.54128&#34;},&#34;Diseases of the skin and subcutaneous tissue&#34;:{&#34;deaths&#34;:&#34;99&#34;,&#34;crude-rate&#34;:&#34;1.43612&#34;},&#34;Diseases of the musculoskeletal system and connective tissue&#34;:{&#34;deaths&#34;:&#34;287&#34;,&#34;crude-rate&#34;:&#34;4.16330&#34;},&#34;Diseases of the genitourinary system&#34;:{&#34;deaths&#34;:&#34;1768&#34;,&#34;crude-rate&#34;:&#34;25.64707&#34;},&#34;Pregnancy, childbirth and the puerperium&#34;:{&#34;deaths&#34;:&#34;18&#34;,&#34;crude-rate&#34;:&#34;Unreliable&#34;},&#34;Certain conditions originating in the perinatal period&#34;:{&#34;deaths&#34;:&#34;152&#34;,&#34;crude-rate&#34;:&#34;2.20495&#34;},&#34;Congenital malformations, deformations and chromosomal abnormalities&#34;:{&#34;deaths&#34;:&#34;157&#34;,&#34;crude-rate&#34;:&#34;2.27748&#34;},&#34;Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified&#34;:{&#34;deaths&#34;:&#34;748&#34;,&#34;crude-rate&#34;:&#34;10.85069&#34;},&#34;Codes for special purposes&#34;:{&#34;deaths&#34;:&#34;9320&#34;,&#34;crude-rate&#34;:&#34;135.19837&#34;},&#34;External causes of morbidity and mortality&#34;:{&#34;deaths&#34;:&#34;5073&#34;,&#34;crude-rate&#34;:&#34;73.59027&#34;},&#34;total_deaths&#34;:68221}}</p>
+  <header>
+  <!--<div id='menu-button-div'>
+ <img src='images/highlight-menu-icon.png' class="menu-icon hidden" id='highlight-menu-icon'>
+    <img src="menu-icon.png" class='menu-icon' id='menu-icon'>
+    <button type="button" id='open-menu'>---</button>
+    <button type="button" class="btn-close btn-close-white hidden" aria-label="Close" id='close-menu'></button>
+  </div>
+  <div id='menu' class='hidden'> 
+    <a id='close-option'>Close</a>
+    <a href="index.html">Index</a>
+    <a href='about.html'>About</a>
+  </div>-->
+  <div id="nav-bar-container">
+    <h6 id="nav-title">Causes of Death in the US</h6>
+    <a class='nav-button' href="index.html">Index</a><a class='nav-button' href="about.html">About</a>
+    <div class="nav-drop">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        State Pages
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="Alaska.html">Alaska</a></li>
+          <li><a class="dropdown-item" href="Alabama.html">Alabama</a></li>
+          <li><a class="dropdown-item" href="Arkansas.html">Arkansas</a></li>
+          <li><a class="dropdown-item" href="Arizona.html">Arizona</a></li>
+          <li><a class="dropdown-item" href="California.html">California</a></li>
+          <li><a class="dropdown-item" href="Colorado.html">Colorado</a></li>
+          <li><a class="dropdown-item" href="Connecticut.html">Connecticut</a></li>
+          <li><a class="dropdown-item" href="District_Of_Columbia.html">District Of Columbia</a></li>
+          <li><a class="dropdown-item" href="Delaware.html">Delaware</a></li>
+          <li><a class="dropdown-item" href="Florida.html">Florida</a></li>
+          <li><a class="dropdown-item" href="Georgia.html">Georgia</a></li>
+          <li><a class="dropdown-item" href="Guam.html">Guam</a></li>
+          <li><a class="dropdown-item" href="Hawaii.html">Hawaii</a></li>
+          <li><a class="dropdown-item" href="Iowa.html">Iowa</a></li>
+          <li><a class="dropdown-item" href="Idaho.html">Idaho</a></li>
+          <li><a class="dropdown-item" href="Illinois.html">Illinois</a></li>
+          <li><a class="dropdown-item" href="Indiana.html">Indiana</a></li>
+          <li><a class="dropdown-item" href="Kansas.html">Kansas</a></li>
+          <li><a class="dropdown-item" href="Kentucky.html">Kentucky</a></li>
+          <li><a class="dropdown-item" href="Louisiana.html">Louisiana</a></li>
+          <li><a class="dropdown-item" href="Massachusetts.html">Massachusetts</a></li>
+          <li><a class="dropdown-item" href="Maryland.html">Maryland</a></li>
+          <li><a class="dropdown-item" href="Maine.html">Maine</a></li>
+          <li><a class="dropdown-item" href="Michigan.html">Michigan</a></li>
+          <li><a class="dropdown-item" href="Minnesota.html">Minnesota</a></li>
+          <li><a class="dropdown-item" href="Missouri.html">Missouri</a></li>
+          <li><a class="dropdown-item" href="Mississippi.html">Mississippi</a></li>
+          <li><a class="dropdown-item" href="Montana.html">Montana</a></li>
+          <li><a class="dropdown-item" href="North_Carolina.html">North Carolina</a></li>
+          <li><a class="dropdown-item" href="North_Dakota.html">North Dakota</a></li>
+          <li><a class="dropdown-item" href="Nebraska.html">Nebraska</a></li>
+          <li><a class="dropdown-item" href="New_Hampshire.html">New Hampshire</a></li>
+          <li><a class="dropdown-item" href="New_Jersey.html">New Jersey</a></li>
+          <li><a class="dropdown-item" href="New_Mexico.html">New Mexico</a></li>
+          <li><a class="dropdown-item" href="Nevada.html">Nevada</a></li>
+          <li><a class="dropdown-item" href="New_York.html">New York</a></li>
+          <li><a class="dropdown-item" href="Ohio.html">Ohio</a></li>
+          <li><a class="dropdown-item" href="Oklahoma.html">Oklahoma</a></li>
+          <li><a class="dropdown-item" href="Oregon.html">Oregon</a></li>
+          <li><a class="dropdown-item" href="Pennsylvania.html">Pennsylvania</a></li>
+          <li><a class="dropdown-item" href="Rhode_Island.html">Rhode Island</a></li>
+          <li><a class="dropdown-item" href="South_Carolina.html">South Carolina</a></li>
+          <li><a class="dropdown-item" href="South_Dakota.html">South Dakota</a></li>
+          <li><a class="dropdown-item" href="Tennessee.html">Tennessee</a></li>
+          <li><a class="dropdown-item" href="Texas.html">Texas</a></li>
+          <li><a class="dropdown-item" href="Utah.html">Utah</a></li>
+          <li><a class="dropdown-item" href="Virginia.html">Virginia</a></li>
+          <li><a class="dropdown-item" href="Vermont.html">Vermont</a></li>
+          <li><a class="dropdown-item" href="Washington.html">Washington</a></li>
+          <li><a class="dropdown-item" href="Wisconsin.html">Wisconsin</a></li>
+          <li><a class="dropdown-item" href="West_Virginia.html">West Virginia</a></li>
+          <li><a class="dropdown-item" href="Wyoming.html">Wyoming</a></li>
+      </ul>
+    </div>
+  </div>
+  </div>
+  
+  <!-- <script src="nav.js"></script> -->
+</header>
+  <header>
+    <h1 id="state_title">Deaths in Massachusetts</h1>
+  </header>
+
+  <section id="state-stats">
+  <h2>Stats:</h2>
+  <h6>Population: 6893574</h6>
+  <h2>Deaths per Year (1999-2020)</h2>
+<div id="Neoplasms" style="width:600px;height:250px;"></div>
+<h2>Causes of Death each Year (1999-2020)</h2>
+<div id="Deaths" style="width:width;height:800px;"></div>
+
+<script src="state_charts.js"></script>
+<p>
+  Like with our national data, we see a clear uptick in deaths in 2020, caused by the COVID Pandemic. With our state data, year to year fluctuations in deaths are much more pronounced. At a national level, the upticks and downticks in various causes of death mean the totals even out over 50 states and Washington D.C.. Given that different states categoize deaths in slighly different ways, COVID deaths fall under multiple categories in different states. Further, because there is a lot of migration within the United States, some states will experience year to year populaiton declines while others will see increases. This is why many states do not see the increases in deaths year to year for a number of states that we see at the national level. 
+</p>
+<h1>Comparison to National Data</h1>
+<h2>Percentage of Population</h2>
+<div id="pie_chart_my"></div>
+<h2>Percentage of Deaths Each Year</h2>
+<div id="line_chart_my"></div>
+<script src="compare_charts.js"></script>
+<a class="back_state" id="back_state">Previous State</a>
+<a class="next_state" id="next_state">Next State</a>
+<script src="next_back.js"></script>
+<!--
+
+  <tr>
+    <th>1999</th>
+    <th>6317345</th>
+    
+    <td></td>
+    
+    <td>1471</td>
+    
+    <td>14252</td>
+    
+    <td>217</td>
+    
+    <td>1970</td>
+    
+    <td>1436</td>
+    
+    <td>2263</td>
+    
+    <td>20857</td>
+    
+    <td>6199</td>
+    
+    <td>2136</td>
+    
+    <td>76</td>
+    
+    <td>286</td>
+    
+    <td>1549</td>
+    
+    <td>271</td>
+    
+    <td>155</td>
+    
+    <td>370</td>
+    
+    <td>2329</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2000</th>
+    <th>6349097</th>
+    
+    <td></td>
+    
+    <td>1406</td>
+    
+    <td>14410</td>
+    
+    <td>220</td>
+    
+    <td>2011</td>
+    
+    <td>1575</td>
+    
+    <td>2538</td>
+    
+    <td>20417</td>
+    
+    <td>6654</td>
+    
+    <td>2153</td>
+    
+    <td>93</td>
+    
+    <td>267</td>
+    
+    <td>1630</td>
+    
+    <td>231</td>
+    
+    <td>132</td>
+    
+    <td>646</td>
+    
+    <td>2296</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2001</th>
+    <th>6397634</th>
+    
+    <td></td>
+    
+    <td>1488</td>
+    
+    <td>14125</td>
+    
+    <td>207</td>
+    
+    <td>2053</td>
+    
+    <td>1848</td>
+    
+    <td>2745</td>
+    
+    <td>20207</td>
+    
+    <td>6134</td>
+    
+    <td>2227</td>
+    
+    <td>82</td>
+    
+    <td>334</td>
+    
+    <td>1624</td>
+    
+    <td>260</td>
+    
+    <td>157</td>
+    
+    <td>420</td>
+    
+    <td>91</td>
+    
+    <td>2745</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2002</th>
+    <th>6417206</th>
+    
+    <td></td>
+    
+    <td>1534</td>
+    
+    <td>14257</td>
+    
+    <td>249</td>
+    
+    <td>2004</td>
+    
+    <td>1975</td>
+    
+    <td>2793</td>
+    
+    <td>19751</td>
+    
+    <td>6296</td>
+    
+    <td>2222</td>
+    
+    <td>67</td>
+    
+    <td>315</td>
+    
+    <td>1734</td>
+    
+    <td>249</td>
+    
+    <td>167</td>
+    
+    <td>627</td>
+    
+    <td>2685</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2003</th>
+    <th>6422565</th>
+    
+    <td></td>
+    
+    <td>1552</td>
+    
+    <td>13895</td>
+    
+    <td>219</td>
+    
+    <td>2040</td>
+    
+    <td>2069</td>
+    
+    <td>2713</td>
+    
+    <td>19407</td>
+    
+    <td>6186</td>
+    
+    <td>2269</td>
+    
+    <td>82</td>
+    
+    <td>308</td>
+    
+    <td>1681</td>
+    
+    <td>242</td>
+    
+    <td>170</td>
+    
+    <td>685</td>
+    
+    <td>2769</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2004</th>
+    <th>6412281</th>
+    
+    <td></td>
+    
+    <td>1543</td>
+    
+    <td>13683</td>
+    
+    <td>230</td>
+    
+    <td>1892</td>
+    
+    <td>2005</td>
+    
+    <td>2832</td>
+    
+    <td>18423</td>
+    
+    <td>6008</td>
+    
+    <td>2111</td>
+    
+    <td>83</td>
+    
+    <td>283</td>
+    
+    <td>1685</td>
+    
+    <td>237</td>
+    
+    <td>141</td>
+    
+    <td>750</td>
+    
+    <td>2598</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2005</th>
+    <th>6403290</th>
+    
+    <td></td>
+    
+    <td>1598</td>
+    
+    <td>13527</td>
+    
+    <td>203</td>
+    
+    <td>1807</td>
+    
+    <td>2257</td>
+    
+    <td>2803</td>
+    
+    <td>17518</td>
+    
+    <td>5962</td>
+    
+    <td>2122</td>
+    
+    <td>84</td>
+    
+    <td>257</td>
+    
+    <td>1910</td>
+    
+    <td>232</td>
+    
+    <td>167</td>
+    
+    <td>722</td>
+    
+    <td>2697</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2006</th>
+    <th>6410084</th>
+    
+    <td></td>
+    
+    <td>1556</td>
+    
+    <td>13796</td>
+    
+    <td>176</td>
+    
+    <td>1595</td>
+    
+    <td>2705</td>
+    
+    <td>2732</td>
+    
+    <td>17087</td>
+    
+    <td>5605</td>
+    
+    <td>2028</td>
+    
+    <td>66</td>
+    
+    <td>279</td>
+    
+    <td>1825</td>
+    
+    <td>237</td>
+    
+    <td>127</td>
+    
+    <td>657</td>
+    
+    <td>2970</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2007</th>
+    <th>6431559</th>
+    
+    <td></td>
+    
+    <td>1496</td>
+    
+    <td>13359</td>
+    
+    <td>214</td>
+    
+    <td>1728</td>
+    
+    <td>2898</td>
+    
+    <td>2918</td>
+    
+    <td>16822</td>
+    
+    <td>5139</td>
+    
+    <td>2172</td>
+    
+    <td>78</td>
+    
+    <td>259</td>
+    
+    <td>1809</td>
+    
+    <td>218</td>
+    
+    <td>141</td>
+    
+    <td>645</td>
+    
+    <td>3015</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2008</th>
+    <th>6468967</th>
+    
+    <td></td>
+    
+    <td>1476</td>
+    
+    <td>13372</td>
+    
+    <td>214</td>
+    
+    <td>1631</td>
+    
+    <td>3441</td>
+    
+    <td>3023</td>
+    
+    <td>16735</td>
+    
+    <td>5484</td>
+    
+    <td>2128</td>
+    
+    <td>71</td>
+    
+    <td>248</td>
+    
+    <td>1735</td>
+    
+    <td>241</td>
+    
+    <td>150</td>
+    
+    <td>728</td>
+    
+    <td>2837</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2009</th>
+    <th>6517613</th>
+    
+    <td></td>
+    
+    <td>1496</td>
+    
+    <td>13458</td>
+    
+    <td>190</td>
+    
+    <td>1551</td>
+    
+    <td>3598</td>
+    
+    <td>2924</td>
+    
+    <td>16053</td>
+    
+    <td>5149</td>
+    
+    <td>2000</td>
+    
+    <td>71</td>
+    
+    <td>222</td>
+    
+    <td>1610</td>
+    
+    <td>231</td>
+    
+    <td>151</td>
+    
+    <td>663</td>
+    
+    <td>2936</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2010</th>
+    <th>6547629</th>
+    
+    <td></td>
+    
+    <td>1551</td>
+    
+    <td>13315</td>
+    
+    <td>244</td>
+    
+    <td>1592</td>
+    
+    <td>4079</td>
+    
+    <td>2977</td>
+    
+    <td>15692</td>
+    
+    <td>4913</td>
+    
+    <td>2002</td>
+    
+    <td>77</td>
+    
+    <td>268</td>
+    
+    <td>1725</td>
+    
+    <td>199</td>
+    
+    <td>147</td>
+    
+    <td>713</td>
+    
+    <td>3082</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2011</th>
+    <th>6587536</th>
+    
+    <td></td>
+    
+    <td>1495</td>
+    
+    <td>13258</td>
+    
+    <td>223</td>
+    
+    <td>1758</td>
+    
+    <td>4662</td>
+    
+    <td>3082</td>
+    
+    <td>15462</td>
+    
+    <td>5416</td>
+    
+    <td>1969</td>
+    
+    <td>85</td>
+    
+    <td>252</td>
+    
+    <td>1658</td>
+    
+    <td>181</td>
+    
+    <td>155</td>
+    
+    <td>885</td>
+    
+    <td>3161</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2012</th>
+    <th>6646144</th>
+    
+    <td></td>
+    
+    <td>1451</td>
+    
+    <td>13231</td>
+    
+    <td>223</td>
+    
+    <td>1681</td>
+    
+    <td>4843</td>
+    
+    <td>3010</td>
+    
+    <td>15204</td>
+    
+    <td>5151</td>
+    
+    <td>2002</td>
+    
+    <td>71</td>
+    
+    <td>229</td>
+    
+    <td>1634</td>
+    
+    <td>172</td>
+    
+    <td>148</td>
+    
+    <td>1088</td>
+    
+    <td>3033</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2013</th>
+    <th>6692824</th>
+    
+    <td></td>
+    
+    <td>1504</td>
+    
+    <td>13186</td>
+    
+    <td>185</td>
+    
+    <td>1748</td>
+    
+    <td>5100</td>
+    
+    <td>3111</td>
+    
+    <td>15560</td>
+    
+    <td>5347</td>
+    
+    <td>2033</td>
+    
+    <td>87</td>
+    
+    <td>278</td>
+    
+    <td>1678</td>
+    
+    <td>178</td>
+    
+    <td>145</td>
+    
+    <td>1185</td>
+    
+    <td>3235</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2014</th>
+    <th>6745408</th>
+    
+    <td></td>
+    
+    <td>1453</td>
+    
+    <td>13204</td>
+    
+    <td>213</td>
+    
+    <td>1885</td>
+    
+    <td>5279</td>
+    
+    <td>3106</td>
+    
+    <td>15419</td>
+    
+    <td>5266</td>
+    
+    <td>2127</td>
+    
+    <td>103</td>
+    
+    <td>258</td>
+    
+    <td>1682</td>
+    
+    <td>192</td>
+    
+    <td>152</td>
+    
+    <td>1354</td>
+    
+    <td>3499</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2015</th>
+    <th>6794422</th>
+    
+    <td></td>
+    
+    <td>1595</td>
+    
+    <td>13101</td>
+    
+    <td>229</td>
+    
+    <td>2218</td>
+    
+    <td>5643</td>
+    
+    <td>3437</td>
+    
+    <td>15870</td>
+    
+    <td>5719</td>
+    
+    <td>2257</td>
+    
+    <td>92</td>
+    
+    <td>270</td>
+    
+    <td>1704</td>
+    
+    <td>197</td>
+    
+    <td>149</td>
+    
+    <td>1196</td>
+    
+    <td>4120</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2016</th>
+    <th>6811779</th>
+    
+    <td></td>
+    
+    <td>1434</td>
+    
+    <td>13073</td>
+    
+    <td>209</td>
+    
+    <td>2077</td>
+    
+    <td>5634</td>
+    
+    <td>3304</td>
+    
+    <td>15593</td>
+    
+    <td>5276</td>
+    
+    <td>2349</td>
+    
+    <td>85</td>
+    
+    <td>255</td>
+    
+    <td>1581</td>
+    
+    <td>18</td>
+    
+    <td>177</td>
+    
+    <td>159</td>
+    
+    <td>1009</td>
+    
+    <td>4725</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2017</th>
+    <th>6859819</th>
+    
+    <td></td>
+    
+    <td>1458</td>
+    
+    <td>13284</td>
+    
+    <td>228</td>
+    
+    <td>2150</td>
+    
+    <td>6146</td>
+    
+    <td>3520</td>
+    
+    <td>15721</td>
+    
+    <td>5810</td>
+    
+    <td>2296</td>
+    
+    <td>105</td>
+    
+    <td>251</td>
+    
+    <td>1669</td>
+    
+    <td>14</td>
+    
+    <td>137</td>
+    
+    <td>162</td>
+    
+    <td>1061</td>
+    
+    <td>4788</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2018</th>
+    <th>6902149</th>
+    
+    <td></td>
+    
+    <td>1553</td>
+    
+    <td>12993</td>
+    
+    <td>261</td>
+    
+    <td>2315</td>
+    
+    <td>6136</td>
+    
+    <td>3625</td>
+    
+    <td>15781</td>
+    
+    <td>5880</td>
+    
+    <td>2345</td>
+    
+    <td>97</td>
+    
+    <td>261</td>
+    
+    <td>1662</td>
+    
+    <td>15</td>
+    
+    <td>175</td>
+    
+    <td>176</td>
+    
+    <td>875</td>
+    
+    <td>5001</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2019</th>
+    <th>6892503</th>
+    
+    <td></td>
+    
+    <td>1453</td>
+    
+    <td>12928</td>
+    
+    <td>200</td>
+    
+    <td>2367</td>
+    
+    <td>6190</td>
+    
+    <td>3688</td>
+    
+    <td>15529</td>
+    
+    <td>5665</td>
+    
+    <td>2240</td>
+    
+    <td>92</td>
+    
+    <td>273</td>
+    
+    <td>1773</td>
+    
+    <td>148</td>
+    
+    <td>173</td>
+    
+    <td>845</td>
+    
+    <td>5049</td>
+    
+    <td></td>
+    
+  </tr>
+
+  <tr>
+    <th>2020 </th>
+    <th>6893574</th>
+    
+    <td></td>
+    
+    <td>1571</td>
+    
+    <td>12706</td>
+    
+    <td>230</td>
+    
+    <td>2726</td>
+    
+    <td>6277</td>
+    
+    <td>3782</td>
+    
+    <td>15363</td>
+    
+    <td>5425</td>
+    
+    <td>2519</td>
+    
+    <td>99</td>
+    
+    <td>287</td>
+    
+    <td>1768</td>
+    
+    <td>18</td>
+    
+    <td>152</td>
+    
+    <td>157</td>
+    
+    <td>748</td>
+    
+    <td>9320</td>
+    
+    <td>5073</td>
+    
+    <td></td>
+    
+  </tr>
+
+-->
+  <!--
+  <table>
+    <tr>
+      <th>Causes</th>
+      
+        <th>
+          population
+        </th>
+        
+        <th>
+          Certain infectious and parasitic diseases
+        </th>
+        
+        <th>
+          Neoplasms
+        </th>
+        
+        <th>
+          Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism
+        </th>
+        
+        <th>
+          Endocrine, nutritional and metabolic diseases
+        </th>
+        
+        <th>
+          Mental and behavioural disorders
+        </th>
+        
+        <th>
+          Diseases of the nervous system
+        </th>
+        
+        <th>
+          Diseases of the circulatory system
+        </th>
+        
+        <th>
+          Diseases of the respiratory system
+        </th>
+        
+        <th>
+          Diseases of the digestive system
+        </th>
+        
+        <th>
+          Diseases of the skin and subcutaneous tissue
+        </th>
+        
+        <th>
+          Diseases of the musculoskeletal system and connective tissue
+        </th>
+        
+        <th>
+          Diseases of the genitourinary system
+        </th>
+        
+        <th>
+          Certain conditions originating in the perinatal period
+        </th>
+        
+        <th>
+          Congenital malformations, deformations and chromosomal abnormalities
+        </th>
+        
+        <th>
+          Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified
+        </th>
+        
+        <th>
+          Codes for special purposes
+        </th>
+        
+        <th>
+          External causes of morbidity and mortality
+        </th>
+        
+        <th>
+          total_deaths
+        </th>
+        
+
+    </tr>
+      
+        <tr>
+          <th>1999</th>
+          <th>6317345</th>
+          
+          <td></td>
+          
+          <td>1471</td>
+          
+          <td>14252</td>
+          
+          <td>217</td>
+          
+          <td>1970</td>
+          
+          <td>1436</td>
+          
+          <td>2263</td>
+          
+          <td>20857</td>
+          
+          <td>6199</td>
+          
+          <td>2136</td>
+          
+          <td>76</td>
+          
+          <td>286</td>
+          
+          <td>1549</td>
+          
+          <td>271</td>
+          
+          <td>155</td>
+          
+          <td>370</td>
+          
+          <td>2329</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2000</th>
+          <th>6349097</th>
+          
+          <td></td>
+          
+          <td>1406</td>
+          
+          <td>14410</td>
+          
+          <td>220</td>
+          
+          <td>2011</td>
+          
+          <td>1575</td>
+          
+          <td>2538</td>
+          
+          <td>20417</td>
+          
+          <td>6654</td>
+          
+          <td>2153</td>
+          
+          <td>93</td>
+          
+          <td>267</td>
+          
+          <td>1630</td>
+          
+          <td>231</td>
+          
+          <td>132</td>
+          
+          <td>646</td>
+          
+          <td>2296</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2001</th>
+          <th>6397634</th>
+          
+          <td></td>
+          
+          <td>1488</td>
+          
+          <td>14125</td>
+          
+          <td>207</td>
+          
+          <td>2053</td>
+          
+          <td>1848</td>
+          
+          <td>2745</td>
+          
+          <td>20207</td>
+          
+          <td>6134</td>
+          
+          <td>2227</td>
+          
+          <td>82</td>
+          
+          <td>334</td>
+          
+          <td>1624</td>
+          
+          <td>260</td>
+          
+          <td>157</td>
+          
+          <td>420</td>
+          
+          <td>91</td>
+          
+          <td>2745</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2002</th>
+          <th>6417206</th>
+          
+          <td></td>
+          
+          <td>1534</td>
+          
+          <td>14257</td>
+          
+          <td>249</td>
+          
+          <td>2004</td>
+          
+          <td>1975</td>
+          
+          <td>2793</td>
+          
+          <td>19751</td>
+          
+          <td>6296</td>
+          
+          <td>2222</td>
+          
+          <td>67</td>
+          
+          <td>315</td>
+          
+          <td>1734</td>
+          
+          <td>249</td>
+          
+          <td>167</td>
+          
+          <td>627</td>
+          
+          <td>2685</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2003</th>
+          <th>6422565</th>
+          
+          <td></td>
+          
+          <td>1552</td>
+          
+          <td>13895</td>
+          
+          <td>219</td>
+          
+          <td>2040</td>
+          
+          <td>2069</td>
+          
+          <td>2713</td>
+          
+          <td>19407</td>
+          
+          <td>6186</td>
+          
+          <td>2269</td>
+          
+          <td>82</td>
+          
+          <td>308</td>
+          
+          <td>1681</td>
+          
+          <td>242</td>
+          
+          <td>170</td>
+          
+          <td>685</td>
+          
+          <td>2769</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2004</th>
+          <th>6412281</th>
+          
+          <td></td>
+          
+          <td>1543</td>
+          
+          <td>13683</td>
+          
+          <td>230</td>
+          
+          <td>1892</td>
+          
+          <td>2005</td>
+          
+          <td>2832</td>
+          
+          <td>18423</td>
+          
+          <td>6008</td>
+          
+          <td>2111</td>
+          
+          <td>83</td>
+          
+          <td>283</td>
+          
+          <td>1685</td>
+          
+          <td>237</td>
+          
+          <td>141</td>
+          
+          <td>750</td>
+          
+          <td>2598</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2005</th>
+          <th>6403290</th>
+          
+          <td></td>
+          
+          <td>1598</td>
+          
+          <td>13527</td>
+          
+          <td>203</td>
+          
+          <td>1807</td>
+          
+          <td>2257</td>
+          
+          <td>2803</td>
+          
+          <td>17518</td>
+          
+          <td>5962</td>
+          
+          <td>2122</td>
+          
+          <td>84</td>
+          
+          <td>257</td>
+          
+          <td>1910</td>
+          
+          <td>232</td>
+          
+          <td>167</td>
+          
+          <td>722</td>
+          
+          <td>2697</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2006</th>
+          <th>6410084</th>
+          
+          <td></td>
+          
+          <td>1556</td>
+          
+          <td>13796</td>
+          
+          <td>176</td>
+          
+          <td>1595</td>
+          
+          <td>2705</td>
+          
+          <td>2732</td>
+          
+          <td>17087</td>
+          
+          <td>5605</td>
+          
+          <td>2028</td>
+          
+          <td>66</td>
+          
+          <td>279</td>
+          
+          <td>1825</td>
+          
+          <td>237</td>
+          
+          <td>127</td>
+          
+          <td>657</td>
+          
+          <td>2970</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2007</th>
+          <th>6431559</th>
+          
+          <td></td>
+          
+          <td>1496</td>
+          
+          <td>13359</td>
+          
+          <td>214</td>
+          
+          <td>1728</td>
+          
+          <td>2898</td>
+          
+          <td>2918</td>
+          
+          <td>16822</td>
+          
+          <td>5139</td>
+          
+          <td>2172</td>
+          
+          <td>78</td>
+          
+          <td>259</td>
+          
+          <td>1809</td>
+          
+          <td>218</td>
+          
+          <td>141</td>
+          
+          <td>645</td>
+          
+          <td>3015</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2008</th>
+          <th>6468967</th>
+          
+          <td></td>
+          
+          <td>1476</td>
+          
+          <td>13372</td>
+          
+          <td>214</td>
+          
+          <td>1631</td>
+          
+          <td>3441</td>
+          
+          <td>3023</td>
+          
+          <td>16735</td>
+          
+          <td>5484</td>
+          
+          <td>2128</td>
+          
+          <td>71</td>
+          
+          <td>248</td>
+          
+          <td>1735</td>
+          
+          <td>241</td>
+          
+          <td>150</td>
+          
+          <td>728</td>
+          
+          <td>2837</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2009</th>
+          <th>6517613</th>
+          
+          <td></td>
+          
+          <td>1496</td>
+          
+          <td>13458</td>
+          
+          <td>190</td>
+          
+          <td>1551</td>
+          
+          <td>3598</td>
+          
+          <td>2924</td>
+          
+          <td>16053</td>
+          
+          <td>5149</td>
+          
+          <td>2000</td>
+          
+          <td>71</td>
+          
+          <td>222</td>
+          
+          <td>1610</td>
+          
+          <td>231</td>
+          
+          <td>151</td>
+          
+          <td>663</td>
+          
+          <td>2936</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2010</th>
+          <th>6547629</th>
+          
+          <td></td>
+          
+          <td>1551</td>
+          
+          <td>13315</td>
+          
+          <td>244</td>
+          
+          <td>1592</td>
+          
+          <td>4079</td>
+          
+          <td>2977</td>
+          
+          <td>15692</td>
+          
+          <td>4913</td>
+          
+          <td>2002</td>
+          
+          <td>77</td>
+          
+          <td>268</td>
+          
+          <td>1725</td>
+          
+          <td>199</td>
+          
+          <td>147</td>
+          
+          <td>713</td>
+          
+          <td>3082</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2011</th>
+          <th>6587536</th>
+          
+          <td></td>
+          
+          <td>1495</td>
+          
+          <td>13258</td>
+          
+          <td>223</td>
+          
+          <td>1758</td>
+          
+          <td>4662</td>
+          
+          <td>3082</td>
+          
+          <td>15462</td>
+          
+          <td>5416</td>
+          
+          <td>1969</td>
+          
+          <td>85</td>
+          
+          <td>252</td>
+          
+          <td>1658</td>
+          
+          <td>181</td>
+          
+          <td>155</td>
+          
+          <td>885</td>
+          
+          <td>3161</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2012</th>
+          <th>6646144</th>
+          
+          <td></td>
+          
+          <td>1451</td>
+          
+          <td>13231</td>
+          
+          <td>223</td>
+          
+          <td>1681</td>
+          
+          <td>4843</td>
+          
+          <td>3010</td>
+          
+          <td>15204</td>
+          
+          <td>5151</td>
+          
+          <td>2002</td>
+          
+          <td>71</td>
+          
+          <td>229</td>
+          
+          <td>1634</td>
+          
+          <td>172</td>
+          
+          <td>148</td>
+          
+          <td>1088</td>
+          
+          <td>3033</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2013</th>
+          <th>6692824</th>
+          
+          <td></td>
+          
+          <td>1504</td>
+          
+          <td>13186</td>
+          
+          <td>185</td>
+          
+          <td>1748</td>
+          
+          <td>5100</td>
+          
+          <td>3111</td>
+          
+          <td>15560</td>
+          
+          <td>5347</td>
+          
+          <td>2033</td>
+          
+          <td>87</td>
+          
+          <td>278</td>
+          
+          <td>1678</td>
+          
+          <td>178</td>
+          
+          <td>145</td>
+          
+          <td>1185</td>
+          
+          <td>3235</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2014</th>
+          <th>6745408</th>
+          
+          <td></td>
+          
+          <td>1453</td>
+          
+          <td>13204</td>
+          
+          <td>213</td>
+          
+          <td>1885</td>
+          
+          <td>5279</td>
+          
+          <td>3106</td>
+          
+          <td>15419</td>
+          
+          <td>5266</td>
+          
+          <td>2127</td>
+          
+          <td>103</td>
+          
+          <td>258</td>
+          
+          <td>1682</td>
+          
+          <td>192</td>
+          
+          <td>152</td>
+          
+          <td>1354</td>
+          
+          <td>3499</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2015</th>
+          <th>6794422</th>
+          
+          <td></td>
+          
+          <td>1595</td>
+          
+          <td>13101</td>
+          
+          <td>229</td>
+          
+          <td>2218</td>
+          
+          <td>5643</td>
+          
+          <td>3437</td>
+          
+          <td>15870</td>
+          
+          <td>5719</td>
+          
+          <td>2257</td>
+          
+          <td>92</td>
+          
+          <td>270</td>
+          
+          <td>1704</td>
+          
+          <td>197</td>
+          
+          <td>149</td>
+          
+          <td>1196</td>
+          
+          <td>4120</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2016</th>
+          <th>6811779</th>
+          
+          <td></td>
+          
+          <td>1434</td>
+          
+          <td>13073</td>
+          
+          <td>209</td>
+          
+          <td>2077</td>
+          
+          <td>5634</td>
+          
+          <td>3304</td>
+          
+          <td>15593</td>
+          
+          <td>5276</td>
+          
+          <td>2349</td>
+          
+          <td>85</td>
+          
+          <td>255</td>
+          
+          <td>1581</td>
+          
+          <td>18</td>
+          
+          <td>177</td>
+          
+          <td>159</td>
+          
+          <td>1009</td>
+          
+          <td>4725</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2017</th>
+          <th>6859819</th>
+          
+          <td></td>
+          
+          <td>1458</td>
+          
+          <td>13284</td>
+          
+          <td>228</td>
+          
+          <td>2150</td>
+          
+          <td>6146</td>
+          
+          <td>3520</td>
+          
+          <td>15721</td>
+          
+          <td>5810</td>
+          
+          <td>2296</td>
+          
+          <td>105</td>
+          
+          <td>251</td>
+          
+          <td>1669</td>
+          
+          <td>14</td>
+          
+          <td>137</td>
+          
+          <td>162</td>
+          
+          <td>1061</td>
+          
+          <td>4788</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2018</th>
+          <th>6902149</th>
+          
+          <td></td>
+          
+          <td>1553</td>
+          
+          <td>12993</td>
+          
+          <td>261</td>
+          
+          <td>2315</td>
+          
+          <td>6136</td>
+          
+          <td>3625</td>
+          
+          <td>15781</td>
+          
+          <td>5880</td>
+          
+          <td>2345</td>
+          
+          <td>97</td>
+          
+          <td>261</td>
+          
+          <td>1662</td>
+          
+          <td>15</td>
+          
+          <td>175</td>
+          
+          <td>176</td>
+          
+          <td>875</td>
+          
+          <td>5001</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2019</th>
+          <th>6892503</th>
+          
+          <td></td>
+          
+          <td>1453</td>
+          
+          <td>12928</td>
+          
+          <td>200</td>
+          
+          <td>2367</td>
+          
+          <td>6190</td>
+          
+          <td>3688</td>
+          
+          <td>15529</td>
+          
+          <td>5665</td>
+          
+          <td>2240</td>
+          
+          <td>92</td>
+          
+          <td>273</td>
+          
+          <td>1773</td>
+          
+          <td>148</td>
+          
+          <td>173</td>
+          
+          <td>845</td>
+          
+          <td>5049</td>
+          
+          <td></td>
+          
+        </tr>
+      
+        <tr>
+          <th>2020 </th>
+          <th>6893574</th>
+          
+          <td></td>
+          
+          <td>1571</td>
+          
+          <td>12706</td>
+          
+          <td>230</td>
+          
+          <td>2726</td>
+          
+          <td>6277</td>
+          
+          <td>3782</td>
+          
+          <td>15363</td>
+          
+          <td>5425</td>
+          
+          <td>2519</td>
+          
+          <td>99</td>
+          
+          <td>287</td>
+          
+          <td>1768</td>
+          
+          <td>18</td>
+          
+          <td>152</td>
+          
+          <td>157</td>
+          
+          <td>748</td>
+          
+          <td>9320</td>
+          
+          <td>5073</td>
+          
+          <td></td>
+          
+        </tr>
+      
+
+  </table>
+-->
+  </section>
+  
+  <footer>
+----------
+<p>The data is sourced directly from the CDC. The dataset that was used is available <a href="https://wonder.cdc.gov/controller/datarequest/D76;jsessionid=DA1E35917E014A688BE7F7D3B2BE ">here</a>.</p>
+<p>
+  Our project takes our data, organizes it, and turns it into easily understood charts of deaths in the United States on a state and national level.
+  </p>
+Created by Matthew Chin '24 & Benjamin Levy '23
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+</html>
