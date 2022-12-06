@@ -1,3 +1,20 @@
+.carousel-indicators{
+  filter: invert();
+}
+.carousel-control-prev{
+  filter: invert();
+}
+.carousel-control-next{
+  filter: invert();
+}
+.carousel-item{
+  margin-left: auto;
+  margin-right: auto;
+}
+.d-block{
+  margin-left: auto;
+  margin-right: auto;
+}
 #menu-button-div{
   display: flex;
   justify-content: right;
@@ -60,8 +77,9 @@ h1,h2,h3,h4,h5,h6{
   text-decoration: underline;
 }
 .diagram-container{
-  display: flex;
   flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
 }
 .diagram{
   width: 25%;
