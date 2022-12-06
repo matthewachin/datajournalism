@@ -14,7 +14,7 @@
     "prebuild": "node reset.js",
     "build": "cd data && node generateJSON.js && cd .. && cd src && node siteGenerator.js",
     "postbuild": "open http://localhost:3000 && node server.js",
-    "publish" : "git remote add origin https://github.com/matthewachin/matthewachin.github.io.git && git commit -m PUBLISH && git push matthewachin.github.io main",
+    "publish" : "git remote remove origin && git remote add origin https://github.com/matthewachin/matthewachin.github.io.git && git commit -m PUBLISH && git push matthewachin.github.io main",
     "postpublish": "open https://matthewachin.github.io/public/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
