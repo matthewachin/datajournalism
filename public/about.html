@@ -203,6 +203,7 @@
     </ol>
     <h1>Pipeline LucidChart</h1>
     <img src="dia.png" class="diagram">
+    <p>When npm run build is called, prebuild is called first. This runs reset.js, which deletes all of the files in the public folder. Then, the non-html files are copied from the src folder to the public folder. After that, build is called, which calls siteGenerator.js and generateJSON.js. These build all of the html files based on the ejs template and organizes the data into a json file respectively. Finally, postbuild is called, where the server is run and the browser is opened.</p>
   </section>
 
   <footer>
