@@ -3,7 +3,7 @@
 .DS_Store
 package-lock.JSON
 .DS_Store
-/public
+public/.
 public/Alabama.html
 public/Alaska.html
 public/Arizona.html
